@@ -8,8 +8,9 @@ const initialState = {
 export const reducers = (state = initialState, action) => {
   switch (action.type) {
     case ACTypes.AUTH:
-      initialUser = {email: action.payload.email, name: action.payload.name, status: action.payload.status};
-      return { ...state, parrot_input: initialUser };
+      initialUser = {user: action.payload.user, isAuth: action.payload.isAuth, status: action.payload.status};
+      console.log(initialUser);
+      return { ...state, user: initialUser };
 
     default:
       return state;

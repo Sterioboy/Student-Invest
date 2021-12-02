@@ -1,4 +1,4 @@
 module.exports = (req, res , next) => {
   if (req.session.user) next();
-  else res.render('error', { message: 'Нужно авторизоваться' });
+  else res.json({ message: 'Нужно авторизоваться' });
 };

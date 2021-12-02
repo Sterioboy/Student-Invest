@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MainNav = () => {
-  //Check if user isAuth
-  const isAuth = false;
+  const { isAuth, user, status } = useSelector((store) => store.user);
 
   //Component
   return (
@@ -29,7 +29,7 @@ const MainNav = () => {
               {/* IF Auth is false */}
               {isAuth === false && (
                 <li className="nav-item px-3">
-                  <Link className="nav-link" to="/auth/signup">
+                  <Link className="nav-link" to="/auth/register">
                     Sign Up
                   </Link>
                 </li>
@@ -37,7 +37,7 @@ const MainNav = () => {
 
               {isAuth === false && (
                 <li className="nav-item px-3">
-                  <Link className="nav-link" to="/auth/signin">
+                  <Link className="nav-link" to="/auth/login">
                     Sign In
                   </Link>
                 </li>
@@ -45,11 +45,18 @@ const MainNav = () => {
 
               {/* IF Auth is true */}
               {isAuth && (
-                <li className="nav-item px-3">
-                  <a className="nav-link" href="#contacts_block">
-                    Welcome back, ...
-                  </a>
-                </li>
+                <>
+                  <li className="nav-item px-3">
+                    <a disabled className="nav-link" href="xyz">
+                      Welcome back, {user} | Your status is, {status}
+                    </a>
+                  </li>
+                  <li className="nav-item px-3">
+                    <a className="nav-link" href="/auth/destroy">
+                      Log Out (TO BE DONE)
+                    </a>
+                  </li>
+                </>
               )}
             </ul>
           </div>
