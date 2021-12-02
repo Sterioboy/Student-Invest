@@ -1,5 +1,5 @@
-const bcrypt = require("bcrypt");
-const { User } = require("../db/models");
+const bcrypt = require('bcrypt');
+const { User } = require('../db/models');
 
 function failAuth(res) {
   return res.status(401).end();

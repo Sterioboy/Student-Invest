@@ -60,3 +60,13 @@ export const thunkSignInAC = (e, formEl) => async (dispatch) => {
 
   dispatch(authAC(data));
 };
+
+  export const thunkLogOutAC = () => async (dispatch) => {
+    await fetch("/auth/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+    dispatch(authAC(null));
+  };
+  
+
