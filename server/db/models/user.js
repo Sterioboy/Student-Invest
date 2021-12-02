@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      investor: {
-        type: DataTypes.BOOLEAN,
+      status: {
+        type: DataTypes.STRING,
         defaultValue: false,
       },
     },

@@ -20,7 +20,7 @@ router
   .post(checkUserAndCreateSession);
 
 router
-  .route('/')
+  .route('/destroy')
   .get(destroySession);
 
 module.exports = router;
