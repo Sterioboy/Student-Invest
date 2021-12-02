@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
+import Main from "../components/Main/Main";
 
 
 const Routers = () => {
@@ -7,7 +8,7 @@ const Routers = () => {
   //Component
   return (
     <Routes>
-      {/* <Route path="/" element={<Company />} /> */}
+      <Route path="/" element={<Main />} />
     </Routes>
   );
 };

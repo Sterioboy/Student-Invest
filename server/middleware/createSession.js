@@ -1,21 +1,20 @@
-const session = require('express-session'); // библиотека для работы с сессиями// cookie-parser уже включен в express-session
-const pgSessionStore = require('connect-pg-simple')(session); // импортируем экземпляр базы данных для хранения сессий
+const session = require('express-session');
+const pgSessionStore = require('connect-pg-simple')(session);
 require('dotenv').config();
-// записывает переменную req.session.user,  данные из session storage, относящиеся к прилетевшей куке.
-//  если куки нету или она не найдена в session storage - req.session.user -> unfefined
+
 module.exports = session({
-  name: 'sid', // название куки
+  name: 'sid',
   store: new pgSessionStore({
-    conString: //  настройки для подключения к БД, которая хранит куки (в данном случае это та же самая БД, которую мы используем в проекте)
+    conString:
       process.env.NODE_ENV === 'production'
         ? process.env.DB_URL_PROD
         : process.env.DB_URL_DEV, 
   }),
-  secret: process.env.COOKIE_SECRET, // ключ для шифрования cookies // require('crypto').randomBytes(10).toString('hex')
-  resave: false,                     // Если true,  пересохраняет сессию, даже если она не поменялась
-  saveUninitialized: false, // Если false, куки появляются только при установке req.session
+  secret: process.env.COOKIE_SECRET,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production', // В продакшне нужно "secure: true" для HTTPS
-    maxAge: 1000 * 60 * 60 * 24 * 10, // время жизни cookies, ms (10 дней)
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 1000 * 60 * 60 * 24 * 10,
   },
 });
