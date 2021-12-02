@@ -52,9 +52,9 @@ const MainNav = () => {
                     </a>
                   </li>
                   <li className="nav-item px-3">
-                    <a className="nav-link" href="/auth/destroy">
+                    <Link className="nav-link" to="/auth/logout">
                       Log Out (TO BE DONE)
-                    </a>
+                    </Link>
                   </li>
                 </>
               )}
