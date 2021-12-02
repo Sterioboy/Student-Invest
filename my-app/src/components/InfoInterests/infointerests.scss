@@ -1,0 +1,45 @@
+
+
+.InfoInterests{
+ flex:4;
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.information{
+
+ padding: 3cm;
+height: calc(60vh);
+margin: 3cm 1cm;
+width:10cm;
+display: flex;
+justify-content: center;
+border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.interests{
+
+padding: 3cm;
+height: calc(60vh);
+margin: 3cm 1cm;
+width:10cm;
+display: flex;
+justify-content: center;
+
+border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.connections{
+ width:10cm;
+
+ padding: 3cm;
+ height: 3cm;
+ margin: 3cm 1cm;
+ border-radius: 10px;
+   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
