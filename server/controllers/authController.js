@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { Users } = require('../db/models');
+const { User } = require('../db/models');
 
 function failAuth(res) {
   return res.status(401).end();
@@ -29,7 +29,7 @@ exports.createUserAndSession = async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await Users.create({ 
+    const newUser = await User.create({ 
       name: login, 
       password: hashedPassword, 
       email: email,
@@ -49,7 +49,7 @@ exports.checkUserAndCreateSession = async (req, res) => {
   const { login, password } = req.body;
 
   try {
-    const user = await Users.findOne({
+    const user = await User.findOne({
       where: { name: login }, 
       raw: true
     });
