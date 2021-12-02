@@ -1,22 +1,26 @@
-const { 
-  renderSignInForm, 
-  createUserAndSes, 
-  renderSignUpForm, 
-  checkUserAndCreateSes, 
-  destroySes, 
-  isValid
-} = require('../controllers/authController');
-
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+const {
+  checkUserAndCreateSession,
+  createUserAndSession,
+  isUser,
+  destroySession
+} = require("../controllers/authController");
 
 router
-  .get('/signin', renderSignInForm)
-  .post('/signin', isValid, checkUserAndCreateSes);
+  .route('/isAuth')
+  .get(isUser);
 
 router
-  .get('/signup', renderSignUpForm)
-  .post('/signup', createUserAndSes);
+  .route('/register')
+  .post(createUserAndSession);
 
-router.get('/signout', destroySes);
+router
+  .route('/login')
+  .post(checkUserAndCreateSession);
+
+router
+  .route('/')
+  .get(destroySession);
 
 module.exports = router;

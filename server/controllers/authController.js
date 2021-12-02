@@ -1,78 +1,76 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 function failAuth(res) {
-  console.log('Что то пошло не так');
   return res.status(401).end();
 }
 
 function serializeUser(user) {
   return {
     id: user.id,
-    login: user.login,
+    name: user.name,
   };
 }
 
-async function checkUser(login) {
-  const user = await User.findOne({ where: { login: login }, raw: true });
-  return user ? true : false;
+exports.isUser = async (req, res) => {
+  let isAuth;
+
+  if (req.session.user) {
+    isAuth = true;
+  } else {
+    isAuth = false;
+  }
+  res.json({user: req.session.user.name, isAuth: isAuth});
 }
 
-exports.renderSignInForm = (req, res) => res.render('auth/auth', { title: 'Sign in site', action: 'signin', button: 'Sign in', isSignin: true });
-exports.renderSignUpForm = (req, res) => res.render('auth/auth', { title: 'Sign up', action: 'signup', button: 'Sign up', isSignup: true });
+exports.createUserAndSession = async (req, res, next) => {
+  const { login, password, email } = req.body;
 
-exports.isValid = (req, res, next) => {
-  next();
-};
-
-exports.createUserAndSes = async (req, res, next) => {
-  const { login, password } = req.body;
   try {
-    if (await checkUser(login)) return failAuth(res);
-    // Мы не храним пароль в БД, только его хэш
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await User.create({
-      login,
-      password: hashedPassword,
+    const newUser = await User.create({ 
+      name: login, 
+      password: hashedPassword, 
+      email: email,
     });
-    console.log(user);
-    // записываем в req.session.user данные (id & name) (создаем сессию)
-    req.session.user = serializeUser(user); // req.session.user -> id, name
+
+    req.session.user = serializeUser(newUser); 
   } catch (err) {
-    console.error('Err message:', err.message);
-    console.error('Err code', err.code);
-    return failAuth(res);
+    console.log(err)
   }
-  res.status(200).redirect('/'); // ответ 200 + отправка cookies в заголовке на сервер
+
+  let isAuth;
+  if (req.session.user) isAuth = true;
+  res.json({user: req.session.user.name, isAuth: isAuth});
 };
 
-exports.checkUserAndCreateSes = async (req, res, next) => {
+exports.checkUserAndCreateSession = async (req, res) => {
   const { login, password } = req.body;
+
   try {
-    // Пытаемся сначала найти пользователя в БД
-    const user = await User.findOne({ where: { login: login }, raw: true });
-    if (!checkUser(user.login)) return failAuth(res);
+    const user = await User.findOne({
+      where: { name: login }, 
+      raw: true
+    });
+    if (!user) return failAuth(res);
 
-    // Сравниваем хэш в БД с хэшем введённого пароля
-    const isValidPassword = await bcrypt.compare(password, user.password);
-    if (!isValidPassword) return failAuth(res);
-
-    req.session.user = serializeUser(user); // записываем в req.session.user данные (id & name) (создаем сессию)
+    await bcrypt.compare(password, user.password);
+    req.session.user = serializeUser(user);
 
   } catch (err) {
-    console.error('Err message:', err.message);
-    console.error('Err code', err.code);
-    return failAuth(res);
+    console.log(err);
   }
-  res.status(200).redirect('/'); // ответ 200 + отправка cookies в заголовке на сервер
-};
 
-exports.destroySes = (req, res, next) => {
+  let isAuth;
+  if (req.session.user) isAuth = true;
+  res.json({user: req.session.user.name, isAuth: isAuth});
+}
+
+exports.destroySession = async (req, res, next) => {
   req.session.destroy((err) => {
     if (err) return next(err);
     res.clearCookie('sid');
-    res.redirect('/');
+    return res.status(200).end();
   });
 }
