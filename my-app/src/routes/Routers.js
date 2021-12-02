@@ -11,8 +11,8 @@ const Routers = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="/auth/signup" element={<SignUp />} />
-      <Route path="/auth/signin" element={<SignIn />} />
+      <Route path="/auth/register" element={<SignUp />} />
+      <Route path="/auth/login" element={<SignIn />} />
     </Routes>
   );
 };

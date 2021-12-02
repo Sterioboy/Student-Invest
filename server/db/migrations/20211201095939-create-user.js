@@ -17,8 +17,8 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      investor: {
-        type: Sequelize.BOOLEAN
+      status: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
