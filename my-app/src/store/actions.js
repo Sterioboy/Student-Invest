@@ -1,4 +1,4 @@
-import ACTypes from './types';
+import ACTypes from "./types";
 
 export const authAC = (data) => {
   const { status, user, isAuth } = data;
@@ -20,7 +20,7 @@ export const thunkSignUpAC = (e, formEl) => async (dispatch) => {
       email: formEl.current.signUpEmail.value,
       login: formEl.current.signUpName.value,
       status: formEl.current.signUpStatus.value,
-      password: formEl.current.signUpPassword.value
+      password: formEl.current.signUpPassword.value,
     }),
   });
 
@@ -28,7 +28,7 @@ export const thunkSignUpAC = (e, formEl) => async (dispatch) => {
   console.log(data);
 
   //Catch errror
-  if(data.err) {
+  if (data.err) {
     return alert(data.err);
   }
 
@@ -46,7 +46,7 @@ export const thunkSignInAC = (e, formEl) => async (dispatch) => {
     },
     body: JSON.stringify({
       email: formEl.current.signInEmail.value,
-      password: formEl.current.signInPassword.value
+      password: formEl.current.signInPassword.value,
     }),
   });
 
@@ -54,19 +54,14 @@ export const thunkSignInAC = (e, formEl) => async (dispatch) => {
   console.log(data);
 
   //Catch errror
-  if(data.err) {
+  if (data.err) {
     return alert(data.err);
   }
 
   dispatch(authAC(data));
 };
 
-  export const thunkLogOutAC = () => async (dispatch) => {
-    await fetch("/auth/logout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
-    dispatch(authAC(null));
-  };
-  
-
+export const thunkLogOutAC = () => async (dispatch) => {
+  await fetch("/auth/logout");
+  dispatch(authAC({ status: null, user: null, isAuth: false }));
+};
