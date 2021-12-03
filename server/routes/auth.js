@@ -21,6 +21,6 @@ router
 
 router
   .route('/logout')
-  .post(destroySession);
+  .get(destroySession);
 
 module.exports = router;
