@@ -56,6 +56,11 @@ const MainNav = () => {
                       Log Out
                     </Link>
                   </li>
+                  <li className="nav-item px-3">
+                    <Link className="nav-link" to="/profile">
+                      Profile
+                    </Link>
+                  </li>
                 </>
               )}
             </ul>
