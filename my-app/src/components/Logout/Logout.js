@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
+import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { thunkLogOutAC } from "../../store/actions";
 
 function Logout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
+    (() => {
+      console.log("quit");
       dispatch(thunkLogOutAC());
-      return navigate('/')
-  }, [navigate])
+      return navigate("/");
+    })();
+  }, [navigate, dispatch]);
 
-  return (
-      <div className="Logout">
-      </div>
-  );
+  return <div className="Logout"></div>;
 }
 
 export default Logout;
