@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { thunkLogOutAC } from "../../store/actions";
 
 function Logout() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
       console.log('quit')
 
       dispatch(thunkLogOutAC());
-      navigate('/')
+      return navigate('/')
   }, [navigate])
 
   return (

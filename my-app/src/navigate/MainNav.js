@@ -53,7 +53,7 @@ const MainNav = () => {
                   </li>
                   <li className="nav-item px-3">
                     <Link className="nav-link" to="/auth/logout">
-                      Log Out (TO BE DONE)
+                      Log Out
                     </Link>
                   </li>
                 </>
