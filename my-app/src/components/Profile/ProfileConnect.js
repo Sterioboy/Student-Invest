@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import ModalProfile from "./Modal";
 
 function ProfileConnect() {
   return (
@@ -24,6 +25,7 @@ function ProfileConnect() {
           <td></td>
         </tr>
       </tbody>
+      <ModalProfile />
     </Table>
   );
 }
