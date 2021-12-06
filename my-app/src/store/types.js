@@ -1,5 +1,6 @@
 const AСTypes = {
-    AUTH: "AUTH"
+    AUTH: "AUTH",
+    PROFILE: "PROFILE"
   };
 
 export default AСTypes

@@ -7,7 +7,7 @@ import ProfileConnect from "./ProfileConnect";
 import ProfileEdit from "./ProfileEdit";
 
 function Profile() {
-  const profileArr = useSelector((store) => store.profile);
+  
   return (
     <div className="profile">
       <ProfileEdit />
