@@ -1,6 +1,7 @@
 import ACTypes from "./types";
 let allInvestors = [];
 let initialUser = {};
+let initialProfile = {};
 const initialState = {
   user: initialUser,
   investor: allInvestors
@@ -27,6 +28,15 @@ export const reducers = (state = initialState, action) => {
         };
         console.log(initialUser);
         return { ...state, user: initialUser };
+
+    case ACTypes.PROFILE:
+      initialProfile = {
+        photo: action.payload.photo,
+        info: action.payload.info,
+        interests: action.payload.interests,
+        country: action.payload.country,
+        language: action.payload.language
+      }
 
     default:
       return state;
