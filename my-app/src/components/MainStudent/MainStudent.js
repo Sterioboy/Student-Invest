@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Cards from "./Cards";
+import { getAllInvestors } from "../../store/actions";
 
 function MainStudent() {
   //JS
   const investorArr = useSelector((store) => store.investor);
-  const universityArr = useSelector((store) => store.university);
+  console.log(investorArr);
 
   //Component
   return (
@@ -23,14 +24,11 @@ function MainStudent() {
         </Row>
       </Container>
 
-      {/* Universities Section */}
+      {/* Universities Section - Optional*/}
       <Container fluid id="welcome_block" className="my-3 p-3">
         <h2 className="text-center">Universities</h2>
         <Row className="ps-3 py-2 mb-3">
           {/* MAP */}
-          {universityArr.map((element) => (
-          <Cards element={element} key={element.id} />
-        ))}
         </Row>
       </Container>
 

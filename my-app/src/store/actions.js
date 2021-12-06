@@ -1,5 +1,11 @@
 import ACTypes from "./types";
 
+export const checkAuthAC = (data, data1) => {
+  const { status, user, isAuth } = data;
+
+  return { type: ACTypes.CHECK_AUTH, payload: { isAuth, user, status, data1 } };
+};
+
 export const authAC = (data) => {
   const { status, user, isAuth } = data;
 
