@@ -6,6 +6,7 @@ import {
 } from "react-bootstrap";
 import { thunkSignUpAC } from "../../store/actions";
 import { useDispatch } from "react-redux";
+import signup from './signup.scss'
 
 function SignUp() {
   //JS
@@ -14,7 +15,9 @@ function SignUp() {
 
   //Return Component
   return (
-    <Form ref={formEl} className="w-50 mx-auto my-3" onSubmit={(e) => dispatch(thunkSignUpAC(e, formEl))}>
+   <div className='signupDiv'>
+    <div className='signupForm'>
+    <Form ref={formEl} className="w-50 mx-auto my-3 mainform" onSubmit={(e) => dispatch(thunkSignUpAC(e, formEl))}>
       <h3>Sign Up</h3>
       <Form.Group className="mb-3" controlId="signUpEmail">
         <Form.Label>Email address</Form.Label>
@@ -44,6 +47,8 @@ function SignUp() {
         Submit
       </Button>
     </Form>
+    </div>
+    </div>
   );
 }
 

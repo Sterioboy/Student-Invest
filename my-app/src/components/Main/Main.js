@@ -14,10 +14,25 @@ import {
 import inst from "./imgs/inst.jpg"; // with import
 import inst2 from "./imgs/inst2.jpg"; // with import
 import inst3 from "./imgs/inst3.jpg"; // with import
+import main from './main.scss'
 
 function Main() {
   return (
     <div className="mainModule">
+     <div>
+      <img className='image1' src='https://www.princeton.edu//sites/default/files/images/2017/06/20060425_NassauHall_JJ_IMG_5973.jpg' alt=''/>
+     </div>
+     <div >
+      <img className='image1' src='https://www.bbva.com/wp-content/uploads/2020/08/BBVA-open-mentoring-19082020.jpg' alt=''/>
+     </div>
+     <div className='image2'>
+      <div className='left'></div>
+      <div className='right'>
+       <div className='infocard'>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+       <button>Lorem</button></div>
+      </div>
+
+     </div>
       {/* Welcome Section */}
       <Container fluid id="welcome_block" className="my-3 p-3">
         <Row className="ps-3 py-2 bg-light bg-gradient">
@@ -60,7 +75,7 @@ function Main() {
 
       {/* CAROUSEL */}
       <Container fluid id="carousel_block" className="my-3 p-3">
-        <Row className="w-75 mx-auto my-3 d-none d-md-block">
+        <Row className="w-100 mx-auto my-3 d-none d-md-block">
           <Carousel>
             <Carousel.Item>
               <img src={inst} className="d-block w-100" alt="Man on a Cliff" />

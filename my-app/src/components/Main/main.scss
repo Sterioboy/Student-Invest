@@ -1,0 +1,35 @@
+.image1 {
+  width: 100vw;
+}
+.image2 {
+  background: 
+    url("https://www.princeton.edu//sites/default/files/images/2017/06/20060425_NassauHall_JJ_IMG_5973.jpg")
+      center;
+  height: 120vh;
+  display: flex;
+}
+
+.left{
+ flex: 1;
+}
+
+.right{
+ flex: 1;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ .infocard{
+  padding: 1cm;
+  border-radius: 10px; 
+  height: 25cm;
+  width: 20cm;
+  background: linear-gradient(
+   rgba(253, 249, 249, 0.9),
+   rgba(255, 255, 255, 0.9));
+   display: flex;
+   flex-direction: column;
+   padding: 0.5cm;
+   margin-top: 0.5cm;
+ }
+}
