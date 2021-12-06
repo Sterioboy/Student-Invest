@@ -28,8 +28,10 @@ let initialUniversities = [
   }
 ];
 let initialUser = {};
+let initialProfile = {};
 const initialState = {
   user: initialUser,
+  profile: initialProfile,
   investor: initialInvestors,
   university: initialUniversities,
 };
@@ -44,6 +46,15 @@ export const reducers = (state = initialState, action) => {
       };
       console.log(initialUser);
       return { ...state, user: initialUser };
+
+    case ACTypes.PROFILE:
+      initialProfile = {
+        photo: action.payload.photo,
+        info: action.payload.info,
+        interests: action.payload.interests,
+        country: action.payload.country,
+        language: action.payload.language
+      }
 
     default:
       return state;

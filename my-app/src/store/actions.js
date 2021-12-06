@@ -65,3 +65,29 @@ export const thunkLogOutAC = () => async (dispatch) => {
   await fetch("/auth/logout");
   dispatch(authAC({ status: null, user: null, isAuth: false }));
 };
+
+export const thunkProfileAC = (e, formEl) => async (dispatch) => {
+  e.preventDefault();
+
+  const res = await fetch("/profile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      photo: formEl.current.photoProfile.value,
+      info: formEl.current.infoProfile.value,
+      interests: formEl.current.interestsProfile.value,
+      country: formEl.current.countryProfile.value,
+      language: formEl.current.languageProfile.value,
+    }),
+  });
+
+  const data = await res.json();
+  console.log(data);
+
+  //Catch errror
+  if (data.err) {
+    return alert(data.err);
+  }
+};
