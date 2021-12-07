@@ -1,43 +1,25 @@
 import ACTypes from "./types";
-let initialInvestors = [
-  {
-    id: 1,
-    user: "John Brown",
-    language: "English, French",
-    country: "Canada",
-    info: "Aliquam congue pulvinar aliquam. Nunc vehicula at libero et euismod. Integer at viverra mi. Donec.",
-    image: null,
-    interests: "business, finance",
-  },
-  {
-    id: 2,
-    user: "John Smith",
-    language: "English, French",
-    country: "Canada",
-    info: "Aliquam congue pulvinar aliquam. Nunc vehicula at libero et euismod. Integer at viverra mi. Donec.",
-    image: null,
-    interests: "business, finance"
-  },
-];
-let initialUniversities = [
-  {
-    id: 1,
-    user: "McGill University",
-    country: "Canada",
-    info: "Integer convallis ultricies mauris eu facilisis. Integer fermentum hendrerit lorem eu pulvinar. Ut elementum nisl et faucibus sollicitudin. Aliquam scelerisque."
-  }
-];
+let allInvestors = [];
 let initialUser = {};
 let initialProfile = {};
 const initialState = {
   user: initialUser,
-  profile: initialProfile,
-  investor: initialInvestors,
-  university: initialUniversities,
+  investor: allInvestors,
 };
 
 export const reducers = (state = initialState, action) => {
   switch (action.type) {
+    case ACTypes.CHECK_AUTH:
+      initialUser = {
+        user: action.payload.user,
+        isAuth: action.payload.isAuth,
+        status: action.payload.status,
+      };
+      allInvestors = action.payload.data1;
+      console.log(initialUser);
+      console.log(allInvestors);
+      return { ...state, user: initialUser, investor: allInvestors };
+
     case ACTypes.AUTH:
       initialUser = {
         user: action.payload.user,
@@ -53,8 +35,10 @@ export const reducers = (state = initialState, action) => {
         info: action.payload.info,
         interests: action.payload.interests,
         country: action.payload.country,
-        language: action.payload.language
-      }
+        language: action.payload.language,
+      };
+      console.log(initialProfile)
+      return { ...state, profile: initialProfile };
 
     default:
       return state;
