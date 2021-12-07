@@ -1,8 +1,11 @@
 import React from "react";
 import { Col, Button, Card, ListGroup } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { thunkConnectionAC } from "../../store/actions";
 import inst from "./imgs/inst.jpg";
 
 function Cards({ element }) {
+  const dispatch = useDispatch();
   return (
     <Col
       className="
@@ -25,7 +28,7 @@ function Cards({ element }) {
               <ListGroup.Item>Interests: {element.interests}</ListGroup.Item>
             </ListGroup>
           )}
-          <Button variant="primary">Connect</Button>
+          <Button onClick={() => dispatch(thunkConnectionAC(element.id))} variant="primary">Connect</Button>
         </Card.Body>
       </Card>
     </Col>

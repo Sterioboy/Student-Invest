@@ -12,6 +12,26 @@ export const authAC = (data) => {
   return { type: ACTypes.AUTH, payload: { isAuth, user, status } };
 };
 
+export const profileAC = (data) => {
+  console.log(data);
+  const { info, interests, language, country } = data;
+
+  return { type: ACTypes.PROFILE, payload: { info, interests, language, country } };
+};
+
+export const updateConnectionsAC = (data) => {
+  console.log(data);
+  const { id, investor, student, status } = data;
+
+  return { type: ACTypes.UPDATE_CONNECTIONS, payload: { id, investor, student, status } };
+};
+
+export const connectionsAC = (data) => {
+  console.log(data);
+
+  return { type: ACTypes.CONNECTIONS, payload: { data } };
+};
+
 //Fetch Requests - Thunk
 //Sign Up
 export const thunkSignUpAC = (e, formEl) => async (dispatch) => {
@@ -81,7 +101,7 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      photo: formEl.current.photoProfile.value,
+      photo: null,
       info: formEl.current.infoProfile.value,
       interests: formEl.current.interestsProfile.value,
       country: formEl.current.countryProfile.value,
@@ -91,9 +111,27 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
 
   const data = await res.json();
   console.log(data);
+  dispatch(profileAC(data));
+};
+
+export const thunkConnectionAC = (id) => async (dispatch) => {
+  const res = await fetch("/connections", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      investor_id: id,
+      status: false
+    }),
+  });
+  const data = await res.json();
 
   //Catch errror
   if (data.err) {
     return alert(data.err);
   }
-};
+
+  console.log(data);
+  dispatch(updateConnectionsAC(data));
+}

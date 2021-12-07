@@ -26,39 +26,39 @@ function ProfileEdit() {
             onSubmit={(e) => dispatch(thunkProfileAC(e, formEl))}
           >
             <h3>Редактирование профиля</h3>
-            <Form.Group className="mb-3" controlId="">
+            {/* <Form.Group className="mb-3" controlId="">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="Enter your name"
               />
-            </Form.Group>
+            </Form.Group> */}
 
-            <Form.Group className="mb-3" controlId="">
+            {/* <Form.Group className="mb-3" controlId="">
               <Form.Label>Email address</Form.Label>
               <Form.Control required type="email" placeholder="Enter email" />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
-            </Form.Group>
+            </Form.Group> */}
 
-            <Form.Select required className="mb-3" name="">
+            {/* <Form.Select required className="mb-3" name="">
               <option>Status</option>
               <option value="Investor">Investor</option>
               <option value="Student">Student</option>
               <option value="University">University</option>
-            </Form.Select>
+            </Form.Select> */}
 
-            <Form.Group className="mb-3" controlId="">
+            {/* <Form.Group className="mb-3" controlId="">
               <Form.Label>Password</Form.Label>
               <Form.Control required type="password" placeholder="Password" />
-            </Form.Group>
+            </Form.Group> */}
 
-            <Form.Group className="mb-3" controlId="">
+            {/* <Form.Group className="mb-3" controlId="">
               <Form.Label>Аватар</Form.Label><br/>
               <input type='file' name='store_img'/>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="infoProfile">
               <Form.Label>Info</Form.Label>
