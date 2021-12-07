@@ -1,7 +1,9 @@
 const AСTypes = {
     AUTH: "AUTH",
     CHECK_AUTH: "CHECK_AUTH",
-    PROFILE: "PROFILE"
+    PROFILE: "PROFILE",
+    UPDATE_CONNECTIONS: "UPDATE_CONNECTIONS",
+    CONNECTIONS: "CONNECTIONS"
   };
 
 export default AСTypes
