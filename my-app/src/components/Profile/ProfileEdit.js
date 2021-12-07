@@ -56,8 +56,8 @@ function ProfileEdit() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="">
-              <Form.Label>Аватар</Form.Label>
-              <InputGroup></InputGroup>
+              <Form.Label>Аватар</Form.Label><br/>
+              <input type='file' name='store_img'/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="infoProfile">
