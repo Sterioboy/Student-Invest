@@ -28,7 +28,7 @@ function Cards({ element }) {
               <ListGroup.Item>Interests: {element.interests}</ListGroup.Item>
             </ListGroup>
           )}
-          <Button onClick={() => dispatch(thunkConnectionAC(element.id))} variant="primary">Connect</Button>
+          <Button onClick={() => dispatch(thunkConnectionAC(element.user_id))} variant="primary">Connect</Button>
         </Card.Body>
       </Card>
     </Col>
