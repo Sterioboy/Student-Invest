@@ -17,7 +17,6 @@ export const authAC = (data) => {
 };
 
 export const profileAC = (data) => {
-  console.log(data);
   if (data) {
     const { info, interests, language, country } = data;
 
@@ -147,3 +146,7 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
   console.log(data);
   dispatch(updateConnectionsAC(data));
 };
+
+/* export const thunkChangeStatusAC = () => async (dispatch) => {
+
+}; */

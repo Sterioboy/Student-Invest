@@ -11,8 +11,8 @@ function ModalProfile() {
 
   return (
     <>
-      <Button variant="outline-primary" onClick={handleShow}>
-        modal
+      <Button className="ms-3 mt-3" variant="outline-primary" onClick={handleShow}>
+        Modal
       </Button>
 
       <Modal show={show} onHide={handleClose}>
