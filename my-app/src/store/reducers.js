@@ -1,10 +1,13 @@
 import ACTypes from "./types";
+let allConnections = [];
 let allInvestors = [];
 let initialUser = {};
 let initialProfile = {};
 const initialState = {
   user: initialUser,
   investor: allInvestors,
+  profile: initialProfile,
+  connections: allConnections,
 };
 
 export const reducers = (state = initialState, action) => {
@@ -37,8 +40,24 @@ export const reducers = (state = initialState, action) => {
         country: action.payload.country,
         language: action.payload.language,
       };
-      console.log(initialProfile)
+      console.log(initialProfile);
       return { ...state, profile: initialProfile };
+
+    case ACTypes.UPDATE_CONNECTIONS:
+      allConnections = [
+        ...allConnections,
+        {
+          id: action.payload.id,
+          investor: action.payload.investor,
+          student: action.payload.student,
+          status: action.payload.status,
+        },
+      ];
+      return { ...state, connections: allConnections };
+
+    case ACTypes.CONNECTIONS:
+      allConnections = action.payload.data;
+      return { ...state, connections: allConnections };
 
     default:
       return state;

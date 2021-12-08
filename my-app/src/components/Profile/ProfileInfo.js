@@ -1,12 +1,26 @@
 import React from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { profileAC } from "../../store/actions";
 
 function ProfileInfo() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    (async () => {
+      const res = await fetch("/profile");
+      const data = await res.json();
+      dispatch(profileAC(data));
+    })();
+  }, [dispatch]);
+
+  const info = useSelector((store) => store.profile);
+
   return (
     <Card style={{ width: '30rem' }}>
       <Container>
         <Row>
           <Col>
+            <p>{info.info} {info.language} {info.country} {info.interests} {info.photo}</p>
             <h4>Info</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
