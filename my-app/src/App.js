@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import MainNav from './navigate/MainNav';
 import Routers from "./routes/Routers";
 import { useDispatch } from "react-redux";
-import { authAC } from './store/actions';
+import { checkAuthAC } from './store/actions';
 
 function App() {
   //Check if user isAuth
@@ -11,14 +11,14 @@ function App() {
   const dispatch = useDispatch();
   React.useEffect(() => {
     (async () => {
+      //Auth Data
       const res = await fetch("/auth/isAuth");
       const data = await res.json();
       //Catch errror
       if (data.err) {
         return alert(data.err);
       }
-      console.log(data);
-      dispatch(authAC(data));
+      dispatch(checkAuthAC(data));
     })();
   }, [dispatch]);
 
