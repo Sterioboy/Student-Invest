@@ -16,6 +16,7 @@ function ProfileConnect() {
   }, [dispatch]);
 
   const connectionsArr = useSelector((store) => store.connections);
+  const { user } = useSelector((store) => store.user);
   console.log(connectionsArr);
 
   return (
@@ -29,9 +30,11 @@ function ProfileConnect() {
         </tr>
       </thead>
       <tbody>
-        {connectionsArr.map((element) => (
-          <TableCell element={element} key={element.id} />
-        ))}
+        {connectionsArr.map((element) => {
+          if(user === element.student || user === element.investor) {
+            return <TableCell element={element} key={element.id} />
+          }
+        })}
       </tbody>
       <ModalProfile />
     </Table>

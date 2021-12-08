@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import ProfileImage from "./ProfileImage";
 import ProfileInfo from "./ProfileInfo";
 import ProfileInterests from "./ProfileInterests";
@@ -7,7 +6,7 @@ import ProfileConnect from "./ProfileConnect";
 import ProfileEdit from "./ProfileEdit";
 
 function Profile() {
-  
+
   return (
     <div className="profile">
       <ProfileEdit />

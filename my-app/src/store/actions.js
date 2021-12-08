@@ -1,9 +1,13 @@
 import ACTypes from "./types";
 
-export const checkAuthAC = (data, data1) => {
+export const checkAuthAC = (data) => {
   const { status, user, isAuth } = data;
 
-  return { type: ACTypes.CHECK_AUTH, payload: { isAuth, user, status, data1 } };
+  return { type: ACTypes.CHECK_AUTH, payload: { isAuth, user, status } };
+};
+
+export const getInvestorsAC = (data) => {
+  return { type: ACTypes.GET_INVESTORS, payload: { data } };
 };
 
 export const authAC = (data) => {
@@ -31,7 +35,6 @@ export const profileAC = (data) => {
 };
 
 export const updateConnectionsAC = (data) => {
-  console.log(data);
   const { id, investor, student, status } = data;
 
   return {
@@ -41,8 +44,6 @@ export const updateConnectionsAC = (data) => {
 };
 
 export const connectionsAC = (data) => {
-  console.log(data);
-
   return { type: ACTypes.CONNECTIONS, payload: { data } };
 };
 
@@ -65,7 +66,6 @@ export const thunkSignUpAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
-  console.log(data);
 
   //Catch errror
   if (data.err) {
@@ -91,7 +91,6 @@ export const thunkSignInAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
-  console.log(data);
 
   //Catch errror
   if (data.err) {
@@ -124,7 +123,6 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
-  console.log(data);
   dispatch(profileAC(data));
 };
 

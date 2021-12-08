@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 
 function ModalProfile() {
-  const { user } = useSelector((store) => store.user);
+  //const { user } = useSelector((store) => store.user);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,7 +20,7 @@ function ModalProfile() {
           <Modal.Title></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-      
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

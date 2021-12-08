@@ -2,14 +2,8 @@ const { Connections, User, Sequelize } = require("../db/models");
 
 
 exports.connectionsGet = async (req, res) => {
-  const { Op } = require("sequelize");
   const users = await User.findAll({
     attributes: ["login", "id"],
-    /* include: [{
-      model: Connections,
-      attributes: [],
-      where: { [Op.or]: [{[Op.col]: "Connections.investor_id"}: "Connections.student_id"]}
-    }] */
   });
   console.log(users);
 
@@ -41,37 +35,6 @@ exports.connectionsGet = async (req, res) => {
   }
 }
 
-/* exports.connectionsGet = async (req, res) => {
-  const connections = await Connections.findAll();
-  console.log("13 Line", connections);
-  if (connections) {
-    const resArr = connections.map((el) => {
-      //Search for Users
-
-      const getStudent = async (id) => {
-        const student = await User.findOne({
-          where: { id: id },
-        });
-        console.log(student);
-
-        return student
-      }
-      console.log("17 Line", el.dataValues.id);
-      const student = getStudent(el.dataValues.id);
-      console.log("19 Line", student)
-
-      return {
-        id: el.dataValues.id,
-        investor: investor.login,
-        student: student.login,
-        status: el.dataValues.status,
-      }
-    });
-    console.log("32 Line", resArr);
-    res.json(resArr);
-  }
-  res.json([]);
-}; */
 
 exports.connectionsUpdate = async (req, res) => {
   const connection = await Connections.findOne({
