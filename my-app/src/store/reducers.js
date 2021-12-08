@@ -18,10 +18,13 @@ export const reducers = (state = initialState, action) => {
         isAuth: action.payload.isAuth,
         status: action.payload.status,
       };
-      allInvestors = action.payload.data1;
       console.log(initialUser);
-      console.log(allInvestors);
       return { ...state, user: initialUser, investor: allInvestors };
+
+    case ACTypes.GET_INVESTORS:
+      allInvestors = action.payload.data;
+      console.log(allInvestors);
+      return { ...state, investor: allInvestors };
 
     case ACTypes.AUTH:
       initialUser = {
@@ -53,10 +56,12 @@ export const reducers = (state = initialState, action) => {
           status: action.payload.status,
         },
       ];
+      console.log(allConnections);
       return { ...state, connections: allConnections };
 
     case ACTypes.CONNECTIONS:
       allConnections = action.payload.data;
+      console.log(allConnections);
       return { ...state, connections: allConnections };
 
     default:

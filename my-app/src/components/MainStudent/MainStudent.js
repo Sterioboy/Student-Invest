@@ -3,12 +3,22 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Cards from "./Cards";
-import { getAllInvestors } from "../../store/actions";
+import { getInvestorsAC } from "../../store/actions";
+import { useDispatch } from "react-redux";
 
 function MainStudent() {
   //JS
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    (async () => {
+      //Auth Data
+      const res = await fetch("/getAllInvestors");
+      const data = await res.json();
+      dispatch(getInvestorsAC(data));
+    })();
+  }, [dispatch]);
+
   const investorArr = useSelector((store) => store.investor);
-  console.log(investorArr);
 
   //Component
   return (
@@ -18,9 +28,9 @@ function MainStudent() {
         <h2 className="text-center">Investors</h2>
         <Row className="ps-3 py-2 mb-3">
           {/* MAP */}
-          {investorArr.map((element) => (
+          {investorArr ? investorArr.map((element) => (
           <Cards element={element} key={element.id} />
-        ))}
+        )) : null}
         </Row>
       </Container>
 

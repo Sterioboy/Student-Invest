@@ -14,13 +14,11 @@ function App() {
       //Auth Data
       const res = await fetch("/auth/isAuth");
       const data = await res.json();
-      const res1 = await fetch("/getAllInvestors");
-      const data1 = await res1.json();
       //Catch errror
       if (data.err) {
         return alert(data.err);
       }
-      dispatch(checkAuthAC(data, data1));
+      dispatch(checkAuthAC(data));
     })();
   }, [dispatch]);
 
