@@ -9,30 +9,28 @@ import {
   Image,
   Button,
   Carousel,
-  Form
+  Form,
 } from "react-bootstrap";
 import inst from "./imgs/inst.jpg"; // with import
 import inst2 from "./imgs/inst2.jpg"; // with import
 import inst3 from "./imgs/inst3.jpg"; // with import
-import main from './main.scss'
+import main from "./main.scss";
 
 function Main() {
   return (
     <div className="mainModule">
-     <div>
-      <img className='image1' src='https://www.princeton.edu//sites/default/files/images/2017/06/20060425_NassauHall_JJ_IMG_5973.jpg' alt=''/>
-     </div>
-     <div >
-      <img className='image1' src='https://www.bbva.com/wp-content/uploads/2020/08/BBVA-open-mentoring-19082020.jpg' alt=''/>
-     </div>
-     <div className='image2'>
-      <div className='left'></div>
-      <div className='right'>
-       <div className='infocard'>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-       <button>Lorem</button></div>
+      <div className="image1"></div>
+      <div className="image2"></div>
+      <div className="image3">
+        <div className="left"></div>
+        <div className="right">
+          <div className="infocard">
+            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
+            ipsum
+            <button>Lorem</button>
+          </div>
+        </div>
       </div>
-
-     </div>
       {/* Welcome Section */}
       <Container fluid id="welcome_block" className="my-3 p-3">
         <Row className="ps-3 py-2 bg-light bg-gradient">
@@ -137,22 +135,13 @@ function Main() {
           <Form className="align-items-center">
             <Stack direction="horizontal" gap={3}>
               <Form.Group className="col-auto" controlId="formName">
-                <Form.Control
-                  type="text"
-                  placeholder="ФИО"
-                />
+                <Form.Control type="text" placeholder="ФИО" />
               </Form.Group>
               <Form.Group className="col-auto" controlId="formPhone">
-                <Form.Control
-                  type="text"
-                  placeholder="Телефон"
-                />
+                <Form.Control type="text" placeholder="Телефон" />
               </Form.Group>
               <Form.Group className="col-auto" controlId="formEmail">
-                <Form.Control
-                  type="email"
-                  placeholder="Email"
-                />
+                <Form.Control type="email" placeholder="Email" />
               </Form.Group>
               <div className="col-auto">
                 <Button variant="outline-primary" type="submit">

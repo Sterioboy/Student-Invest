@@ -1,12 +1,27 @@
 .image1 {
-  width: 100vw;
+ height: 100vh;
+ background: 
+ url("https://www.hrwlawyers.com/assets/mit.jpg")
+   center;
+   border: solid white 10px;
+
+
 }
 .image2 {
   background: 
-    url("https://www.princeton.edu//sites/default/files/images/2017/06/20060425_NassauHall_JJ_IMG_5973.jpg")
+    url("https://k82bd48pgck19i7321xvcc91-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/50-Billion-Dollar-Man-Daniel-Pen%CC%83a-Graphic-02.jpg")
       center;
-  height: 120vh;
+  height: 100vh;
   display: flex;
+  border: solid white 10px;
+}
+.image3 {
+ background: 
+   url("https://janebenston.com/wp-content/uploads/2016/08/Career-Success1-1900x1200.png")
+     center;
+ height: 120vh;
+ display: flex;
+ border: solid white 10px;
 }
 
 .left{
@@ -23,7 +38,7 @@
   padding: 1cm;
   border-radius: 10px; 
   height: 25cm;
-  width: 20cm;
+  width: 15cm;
   background: linear-gradient(
    rgba(253, 249, 249, 0.9),
    rgba(255, 255, 255, 0.9));
