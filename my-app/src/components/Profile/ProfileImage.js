@@ -12,7 +12,7 @@ function ProfileImage() {
           <Image src="#" roundedCircle />
         </Col>
         </NavLink>
-        <h3>{user}</h3>
+        <h3 className="text-center">{user}</h3>
       </Row>
     </Container>
   );

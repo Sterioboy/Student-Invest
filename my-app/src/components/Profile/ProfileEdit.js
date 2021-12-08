@@ -13,7 +13,7 @@ function ProfileEdit() {
 
   return (
     <>
-      <Button variant="outline-primary" onClick={handleShow}>
+      <Button className="ms-3 mt-3" variant="outline-primary" onClick={handleShow}>
         Edit
       </Button>
 
@@ -22,10 +22,10 @@ function ProfileEdit() {
         <Modal.Body>
           <Form
             ref={formEl}
-            className="w-50 mx-auto my-3"
+            className="w-75 mx-auto my-3"
             onSubmit={(e) => dispatch(thunkProfileAC(e, formEl))}
           >
-            <h3>Редактирование профиля</h3>
+            <h3>Profile Edit</h3>
             {/* <Form.Group className="mb-3" controlId="">
               <Form.Label>Аватар</Form.Label><br/>
               <input type='file' name='store_img'/>
@@ -35,8 +35,9 @@ function ProfileEdit() {
               <Form.Label>Info</Form.Label>
               <Form.Control
                 required
-                type="text"
-                placeholder="Enter about you"
+                as="textarea"
+                placeholder="Tell us about yourself!"
+                style={{ height: '100px' }}
               />
             </Form.Group>
 
@@ -45,21 +46,22 @@ function ProfileEdit() {
               <Form.Control
                 required
                 type="text"
-                placeholder="Enter your interests"
+                placeholder="Your interests"
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="countryProfile">
               <Form.Label>Country</Form.Label>
-              <Form.Control required type="text" placeholder="Enter country" />
+              <Form.Control required type="text" placeholder="Where are You from?" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="languageProfile">
               <Form.Label>Language</Form.Label>
-              <Form.Control required type="text" placeholder="Enter language" />
+              <Form.Control required type="text" placeholder="Spoken languages" />
             </Form.Group>
+            
             <Button variant="primary" type="submit" onClick={handleClose}>
-              Save
+              Submit
             </Button>
           </Form>
         </Modal.Body>

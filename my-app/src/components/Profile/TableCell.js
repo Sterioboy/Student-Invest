@@ -1,13 +1,15 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { thunkChangeStatusAC } from "../../store/actions";
 
 function TableCell({ element }) {
-  console.log(1);
   return (
     <tr>
       <td>{element.id}</td>
       <td>{element.student}</td>
       <td>{element.investor}</td>
-      <td>{String(element.status)}</td>
+      <td>{element.status === false ? "Pending..." : "Connected!"}</td>
+      <td><Button /* onClick={() => dispatch(thunkChangeStatusAC(data))} */>Connect</Button></td>
     </tr>
   );
 }

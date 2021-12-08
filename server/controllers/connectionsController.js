@@ -69,3 +69,7 @@ exports.connectionsUpdate = async (req, res) => {
     res.json({ err: "Connection is already created!" });
   }
 };
+
+/* exports.connectionsStatusUpdate = async (req, res) => {
+}
+ */

@@ -17,18 +17,25 @@ function Cards({ element }) {
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={inst} />
         <Card.Body>
-          <Card.Title>{element.user}</Card.Title>
+          <Card.Title>{element.login}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             {element.country}
           </Card.Subtitle>
           <Card.Text>{element.info}</Card.Text>
           {element.language && (
-            <ListGroup variant="flush" className="mb-3">
-              <ListGroup.Item>Language: {element.language}</ListGroup.Item>
-              <ListGroup.Item>Interests: {element.interests}</ListGroup.Item>
-            </ListGroup>
+            <>
+              <ListGroup variant="flush" className="mb-3">
+                <ListGroup.Item>Language: {element.language}</ListGroup.Item>
+                <ListGroup.Item>Interests: {element.interests}</ListGroup.Item>
+              </ListGroup>
+              <Button
+                onClick={() => dispatch(thunkConnectionAC(element.user_id))}
+                variant="primary"
+              >
+                Connect
+              </Button>
+            </>
           )}
-          <Button onClick={() => dispatch(thunkConnectionAC(element.user_id))} variant="primary">Connect</Button>
         </Card.Body>
       </Card>
     </Col>
