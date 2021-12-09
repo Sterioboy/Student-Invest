@@ -6,10 +6,13 @@ import {
 } from "react-bootstrap";
 import { thunkSignInAC } from "../../store/actions";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const formEl = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  navigate("/")
 
   return (
     <Form ref={formEl} className="w-50 mx-auto my-3" onSubmit={(e) => dispatch(thunkSignInAC(e, formEl))}>

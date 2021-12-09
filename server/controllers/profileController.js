@@ -16,7 +16,6 @@ exports.upload = multer({ storage })
 
 exports.profileUpdate = async (req, res) => {
   const { info, interests, country, language } = req.body;
-  console.log('!!!!!!!>>>>', req.file)
   //IF
   const profile = await Profile.findOne({
     where: { user_id: req.session.user.id },
@@ -54,7 +53,6 @@ exports.profileGet = async (req, res) => {
   const profile = await Profile.findOne({
     where: { user_id: req.session.user.id },
   });
-  console.log('>>>', profile)
   res.json(profile);
 };
 
