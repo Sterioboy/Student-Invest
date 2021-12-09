@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button, Form } from "react-bootstrap";
 import { thunkProfileAC } from "../../store/actions";
+import ProfileImage from "./ProfileImage";
 
 function ProfileEdit() {
   const formEl = useRef();
@@ -23,6 +24,7 @@ function ProfileEdit() {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
+          <ProfileImage />
           <Form
             ref={formEl}
             className="w-75 mx-auto my-3"
