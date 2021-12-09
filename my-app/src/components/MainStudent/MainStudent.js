@@ -34,14 +34,6 @@ function MainStudent() {
         </Row>
       </Container>
 
-      {/* Universities Section - Optional*/}
-      <Container fluid id="welcome_block" className="my-3 p-3">
-        <h2 className="text-center">Universities</h2>
-        <Row className="ps-3 py-2 mb-3">
-          {/* MAP */}
-        </Row>
-      </Container>
-
       {/* FOOTER */}
       <footer className="footer mt-3 bg-light">
         <Row className="px-5">

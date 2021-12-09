@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { connectionsAC } from "../../store/actions";
 import { useSelector, useDispatch } from "react-redux";
-import ModalProfile from "./Modal";
 import TableCell from "./TableCell";
 
 function ProfileConnect() {
@@ -16,28 +15,30 @@ function ProfileConnect() {
   }, [dispatch]);
 
   const connectionsArr = useSelector((store) => store.connections);
-  const { user } = useSelector((store) => store.user);
-  console.log(connectionsArr);
+  const { user, status } = useSelector((store) => store.user);
 
   return (
-    <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Student</th>
-          <th>Investor</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {connectionsArr.map((element) => {
-          if(user === element.student || user === element.investor) {
-            return <TableCell element={element} key={element.id} />
-          }
-        })}
-      </tbody>
-      <ModalProfile />
-    </Table>
+    <>
+      <h3>Connections Status</h3>
+      <Table className="mb-3" striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Investor</th>
+            <th>Status</th>
+            {status !== "Student" ? <th>Connect</th> : null}
+          </tr>
+        </thead>
+        <tbody>
+          {connectionsArr.map((element) => {
+            if (user === element.student || user === element.investor) {
+              return <TableCell element={element} key={element.id} />;
+            }
+          })}
+        </tbody>
+      </Table>
+    </>
   );
 }
 

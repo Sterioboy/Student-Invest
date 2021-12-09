@@ -7,10 +7,13 @@ import {
 import { thunkSignInAC } from "../../store/actions";
 import { useDispatch } from "react-redux";
 import signin from './signin.scss'
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const formEl = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  navigate("/")
 
   return (
    <div className='signinDiv'>
