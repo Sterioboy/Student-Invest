@@ -147,14 +147,17 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
 };
 
 
-export const thunkUploadHandler = async (event) => {
-  event.preventDefault();
+export const thunkUploadHandler = (event) => async(dispatch) => {
+
   const data = new FormData(event.target);
-  await fetch("/profile", {
+  const profileData = await (await fetch("/profile", {
     method: "post",
     body: data,
-  });
+  })).json();
+  dispatch(profileAC(profileData))
 };
+
+
 
 export const thunkChangeStatusAC = (boolean, investorId, studentId) => async (dispatch) => {
   let reverse = !boolean;
