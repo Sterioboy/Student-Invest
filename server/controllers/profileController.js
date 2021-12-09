@@ -11,23 +11,8 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname)); 
   },
 });
+
 exports.upload = multer({ storage })
-
-// exports.createAvatar = async (req, res) => {
-//   try {
-//       const { filename } = req.file;
-
-//       const photo = await Profile.create({ user_id: req.session.user.id, photo: `${filename}` }); // Вместо ссылки сохраняем имя файла
-//       console.log({ photo })
-//       res.json(photo)
-//   } catch (err) {
-//       console.error('Err message:', err.message);
-//       console.error('Err code', err.code);
-//       return failAuth(res);
-//   }
-//   res.status(200).end(); // ответ 200 + отправка cookies в заголовке на сервер
-// }
-
 
 exports.profileUpdate = async (req, res) => {
   const { info, interests, country, language } = req.body;

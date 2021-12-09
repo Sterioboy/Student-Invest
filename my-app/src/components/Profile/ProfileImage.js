@@ -1,30 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Row, Col, Image, NavLink} from "react-bootstrap"
+import { Container, Row, Col, Image, NavLink, Button} from "react-bootstrap"
+import { thunkUploadHandler } from '../../store/actions'
 
 function ProfileImage() {
   const { user } = useSelector((store) => store.user);
-  const profile = useSelector((store) => store.profile);
+  const { photo } = useSelector((store) => store.profile);
 
-   const uploadHandler = async (event) => {
-     event.preventDefault()
-    const data = new FormData(event.target);
-    const response = await fetch('/profile', {
-        method: 'post',
-        body: data
-    })
-  }
   return (
     <Container>
       <Row>
         <NavLink>
         <Col xs={6} md={4}>
-          <Image src={``} roundedCircle />
+          <Image className="w-50" src={`${photo}`} rounded />
         </Col>
         </NavLink>
-        <form onSubmit={uploadHandler}>
+        <form onSubmit={thunkUploadHandler}>
         <input type='file' name='file' />
-        <button type='submit'>ok</button>
+        <Button variant="outline-primary" type='submit'>ok</Button>
         </form>
         <h3 className="text-center">{user}</h3>
       </Row>

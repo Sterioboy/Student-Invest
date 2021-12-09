@@ -12,14 +12,7 @@ function ProfileEdit() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const uploadHandler = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    const response = await fetch("/profile", {
-      method: "post",
-      body: data,
-    });
-  };
+
 
   return (
     <>
