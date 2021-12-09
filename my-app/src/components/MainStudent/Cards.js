@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Button, Card, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkConnectionAC } from "../../store/actions";
+import card from './card.scss'
 
 function Cards({ element }) {
   const dispatch = useDispatch();
@@ -10,12 +11,12 @@ function Cards({ element }) {
     <Col
       className="
               d-flex
-              justify-content-center
-              align-self-center
+              
+              
             "
     >
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={`${element.photo}`} />
+        <Card.Img className='investimg' variant="top" src={`${element.photo}`} />
         <Card.Body>
           <Card.Title>{element.login}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
