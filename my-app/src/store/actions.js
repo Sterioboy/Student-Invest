@@ -17,7 +17,7 @@ export const authAC = (data) => {
 };
 
 export const profileAC = (data) => {
-  console.log("profileAC>>>>>>>>>>>>>>", data);
+
   if (data) {
     const { photo, info, interests, language, country } = data;
 
@@ -121,7 +121,6 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
-  console.log("data==================", data);
   dispatch(profileAC(data));
 };
 
