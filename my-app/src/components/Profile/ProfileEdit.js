@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button, Form } from "react-bootstrap";
 import { thunkProfileAC } from "../../store/actions";
+import ProfileImage from "./ProfileImage";
 
 function ProfileEdit() {
   const formEl = useRef();

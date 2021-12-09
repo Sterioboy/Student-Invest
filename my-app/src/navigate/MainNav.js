@@ -47,9 +47,9 @@ const MainNav = () => {
               {isAuth && (
                 <>
                   <li className="nav-item px-3">
-                    <a disabled className="nav-link" href="/profile">
+                  <Link className="nav-link" to="/profile">
                       Welcome back, {user} | Your status is, {status}
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item px-3">
                     <Link className="nav-link" to="/auth/logout">

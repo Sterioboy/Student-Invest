@@ -15,10 +15,10 @@ module.exports = {
           key: "id",
         },
       },
-      login: {
+      photo: {
         type: Sequelize.STRING,
       },
-      photo: {
+      login: {
         type: Sequelize.STRING,
       },
       info: {
