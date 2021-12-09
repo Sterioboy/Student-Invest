@@ -1,7 +1,37 @@
-const { Profile } = require("../db/models");
+const { Profile, User } = require("../db/models");
+const multer = require('multer');
+const path = require('path');
+
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, './storage/images');
+  },
+  filename(req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)); 
+  },
+});
+exports.upload = multer({ storage })
+
+// exports.createAvatar = async (req, res) => {
+//   try {
+//       const { filename } = req.file;
+
+//       const photo = await Profile.create({ user_id: req.session.user.id, photo: `${filename}` }); // Вместо ссылки сохраняем имя файла
+//       console.log({ photo })
+//       res.json(photo)
+//   } catch (err) {
+//       console.error('Err message:', err.message);
+//       console.error('Err code', err.code);
+//       return failAuth(res);
+//   }
+//   res.status(200).end(); // ответ 200 + отправка cookies в заголовке на сервер
+// }
+
 
 exports.profileUpdate = async (req, res) => {
-  const { photo, info, interests, country, language } = req.body;
+  const { info, interests, country, language } = req.body;
+  console.log('!!!!!!!>>>>', req.file)
   //IF
   const profile = await Profile.findOne({
     where: { user_id: req.session.user.id },
@@ -10,7 +40,7 @@ exports.profileUpdate = async (req, res) => {
   if (profile === null) {
     const newProfile = new Profile({
       user_id: req.session.user.id,
-      photo: photo,
+      photo: `/images/${req.file.filename}`,
       info: info,
       interests: interests,
       country: country,
@@ -24,7 +54,7 @@ exports.profileUpdate = async (req, res) => {
       console.log(err);
     }
   } else {
-    req.body.photo ? (profile.photo = req.body.photo) : null;
+    req.file ? (profile.photo = `/images/${req.file.filename}`) : null;
     req.body.info ? (profile.info = req.body.info) : null;
     req.body.interests ? (profile.interests = req.body.interests) : null;
     req.body.country ? (profile.country = req.body.country) : null;
@@ -38,5 +68,7 @@ exports.profileGet = async (req, res) => {
   const profile = await Profile.findOne({
     where: { user_id: req.session.user.id },
   });
+  console.log('>>>', profile)
   res.json(profile);
 };
+

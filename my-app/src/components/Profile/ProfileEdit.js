@@ -6,10 +6,20 @@ import { thunkProfileAC } from "../../store/actions";
 function ProfileEdit() {
   const formEl = useRef();
   const dispatch = useDispatch();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const uploadHandler = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const response = await fetch("/profile", {
+      method: "post",
+      body: data,
+    });
+  };
 
   return (
     <>
@@ -55,10 +65,14 @@ function ProfileEdit() {
               <Form.Control required type="password" placeholder="Password" />
             </Form.Group> */}
 
-            {/* <Form.Group className="mb-3" controlId="">
-              <Form.Label>Аватар</Form.Label><br/>
-              <input type='file' name='store_img'/>
-            </Form.Group> */}
+            <Form.Group className="mb-3" controlId="">
+              <Form.Label>Аватар</Form.Label>
+              <br />
+              <form onSubmit={uploadHandler}>
+                <input type="file" name="file" />
+                <button type="submit">ok</button>
+              </form>
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="infoProfile">
               <Form.Label>Info</Form.Label>

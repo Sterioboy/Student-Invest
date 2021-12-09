@@ -13,17 +13,31 @@ export const authAC = (data) => {
 };
 
 export const profileAC = (data) => {
-  console.log(data);
-  const { info, interests, language, country } = data;
+  console.log('profileAC>>>>>>>>>>>>>>', data);
+  if (data) {
+    const { info, interests, language, country } = data;
 
-  return { type: ACTypes.PROFILE, payload: { info, interests, language, country } };
+    return {
+      type: ACTypes.PROFILE,
+      payload: { info, interests, language, country },
+    };
+  }
+  else {
+    return {
+      type: ACTypes.PROFILE,
+      payload: { },
+    };
+  }
 };
 
 export const updateConnectionsAC = (data) => {
   console.log(data);
   const { id, investor, student, status } = data;
 
-  return { type: ACTypes.UPDATE_CONNECTIONS, payload: { id, investor, student, status } };
+  return {
+    type: ACTypes.UPDATE_CONNECTIONS,
+    payload: { id, investor, student, status },
+  };
 };
 
 export const connectionsAC = (data) => {
@@ -110,7 +124,7 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
-  console.log(data);
+  console.log('data==================', data);
   dispatch(profileAC(data));
 };
 
@@ -122,7 +136,7 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
     },
     body: JSON.stringify({
       investor_id: id,
-      status: false
+      status: false,
     }),
   });
   const data = await res.json();
@@ -134,4 +148,4 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
 
   console.log(data);
   dispatch(updateConnectionsAC(data));
-}
+};
