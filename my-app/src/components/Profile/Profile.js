@@ -21,8 +21,9 @@ function Profile() {
           <ProfileInterests />
         </Col>
       </Row>
-      <ProfileConnect />
       <ProfileEdit />
+      <ProfileConnect />
+     
     </div>
   );
 }

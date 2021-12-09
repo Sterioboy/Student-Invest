@@ -6,11 +6,15 @@ import {
 } from "react-bootstrap";
 import { thunkSignUpAC } from "../../store/actions";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   //JS
   const formEl = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  navigate("/")
 
   //Return Component
   return (

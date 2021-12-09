@@ -6,10 +6,13 @@ import { thunkProfileAC } from "../../store/actions";
 function ProfileEdit() {
   const formEl = useRef();
   const dispatch = useDispatch();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
 
   return (
     <>
