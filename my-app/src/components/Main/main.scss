@@ -1,50 +1,84 @@
 .image1 {
- height: 100vh;
- background: 
- url("https://www.hrwlawyers.com/assets/mit.jpg")
-   center;
-   border: solid white 10px;
-
-
+  height: 100vh;
+  background: url("https://www.hrwlawyers.com/assets/mit.jpg") center;
+  border: solid white 10px;
+  display: flex;
 }
 .image2 {
-  background: 
-    url("https://k82bd48pgck19i7321xvcc91-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/50-Billion-Dollar-Man-Daniel-Pen%CC%83a-Graphic-02.jpg")
-      center;
+  background: url("https://k82bd48pgck19i7321xvcc91-wpengine.netdna-ssl.com/wp-content/uploads/2020/02/50-Billion-Dollar-Man-Daniel-Pen%CC%83a-Graphic-02.jpg")
+    center;
   height: 100vh;
   display: flex;
   border: solid white 10px;
 }
 .image3 {
- background: 
-   url("https://janebenston.com/wp-content/uploads/2016/08/Career-Success1-1900x1200.png")
-     center;
- height: 120vh;
- display: flex;
- border: solid white 10px;
+  background: url("https://janebenston.com/wp-content/uploads/2016/08/Career-Success1-1900x1200.png")
+    center;
+  height: 120vh;
+  display: flex;
+  border: solid white 10px;
 }
 
-.left{
- flex: 1;
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.right{
- flex: 1;
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
- .infocard{
-  padding: 1cm;
-  border-radius: 10px; 
-  height: 25cm;
-  width: 15cm;
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // .infocard {
+  //   padding: 1cm;
+  //   border-radius: 10px;
+  //   height: 25cm;
+  //   width: 15cm;
+  //   background: linear-gradient(
+  //     rgba(253, 249, 249, 0.9),
+  //     rgba(255, 255, 255, 0.9)
+  //   );
+  //   display: flex;
+  //   flex-direction: column;
+  //   padding: 0.5cm;
+  //   margin-top: 0.5cm;
+  // }
+}
+
+.card {
+  margin-top: 14cm;
+  border-radius: 15px;
+
+  padding: 15px;
   background: linear-gradient(
-   rgba(253, 249, 249, 0.9),
-   rgba(255, 255, 255, 0.9));
-   display: flex;
-   flex-direction: column;
-   padding: 0.5cm;
-   margin-top: 0.5cm;
- }
+    rgba(253, 249, 249, 0.9),
+    rgba(255, 255, 255, 0.9)
+  );
+
+  .button--mimas {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    color: rgb(14, 13, 13);
+    background: #e7e7e7;
+    padding: 5px 15px;
+    margin: 5px;
+    width: 5cm;
+    font-size: 30px;
+  }
+}
+
+.maincaption{
+ background: linear-gradient(
+    rgba(194, 191, 191, 0.9),
+    rgba(255, 255, 255, 0.9));
+ border-radius: 10px 10px;
+ color: black;
 }

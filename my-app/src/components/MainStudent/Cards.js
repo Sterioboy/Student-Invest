@@ -15,7 +15,7 @@ function Cards({ element }) {
             "
     >
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={inst} />
+        <Card.Img variant="top"  />{element.photo}
         <Card.Body>
           <Card.Title>{element.user}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">

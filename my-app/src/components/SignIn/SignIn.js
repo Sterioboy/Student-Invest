@@ -6,12 +6,15 @@ import {
 } from "react-bootstrap";
 import { thunkSignInAC } from "../../store/actions";
 import { useDispatch } from "react-redux";
+import signin from './signin.scss'
 
 function SignIn() {
   const formEl = useRef();
   const dispatch = useDispatch();
 
   return (
+   <div className='signinDiv'>
+    <div className="signinForm">
     <Form ref={formEl} className="w-50 mx-auto my-3" onSubmit={(e) => dispatch(thunkSignInAC(e, formEl))}>
       <h3>Sign In</h3>
       <Form.Group className="mb-3" controlId="signInEmail">
@@ -27,6 +30,8 @@ function SignIn() {
         Submit
       </Button>
     </Form>
+    </div>
+    </div>
   );
 }
 

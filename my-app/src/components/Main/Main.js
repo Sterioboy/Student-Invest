@@ -15,24 +15,86 @@ import inst from "./imgs/inst.jpg"; // with import
 import inst2 from "./imgs/inst2.jpg"; // with import
 import inst3 from "./imgs/inst3.jpg"; // with import
 import main from "./main.scss";
+import { Card } from "react-bootstrap";
 
 function Main() {
   return (
     <div className="mainModule">
-      <div className="image1"></div>
-      <div className="image2"></div>
-      <div className="image3">
-        <div className="left"></div>
+      <div className="image1">
+      <div className="left">
+          
+        </div>
         <div className="right">
-          <div className="infocard">
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum
-            <button>Lorem</button>
+        <Card className='maincard' style={{ width: "30rem" }}>
+            <Container className='maincardcont'>
+              <Row>
+                <Col>
+                  <h4>Info</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras blandit tristique est nec condimentum. Aliquam
+                    bibendum, urna at bibendum varius, augue purus varius erat,
+                    ut aliquam dolor lectus vitae urna. Duis convallis, ipsum
+                    vel porttitor pharetra, tellus neque accumsan urna, 
+                    <button className='button button--mimas'>hi!</button>
+
+                  </p>
+                </Col>
+              </Row>
+            </Container>
+          </Card>
+        </div>
+        </div>
+      <div className="image2">
+      <div className="left">
+          <Card className='maincard' style={{ width: "30rem" }}>
+            <Container>
+              <Row>
+                <Col>
+                  <h4>Info</h4>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras blandit tristique est nec condimentum. Aliquam
+                    bibendum, urna at bibendum varius, augue purus varius erat,
+                    ut aliquam dolor lectus vitae urna. Duis convallis, ipsum
+                    vel porttitor pharetra, tellus neque accumsan urna, 
+                  </p>
+                  <button className='button button--mimas'>hi!</button>
+                </Col>
+              </Row>
+            </Container>
+          </Card>
+        </div>
+        <div className="right">
+          
           </div>
+        </div>
+      <div className="image3">
+        <div className="left">
+          
+        </div>
+        <div className="right">
+        <Card className='maincard' style={{ width: "30rem" }}>
+            <Container>
+              <Row>
+                <Col>
+                  <h4>Info</h4>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras blandit tristique est nec condimentum. Aliquam
+                    bibendum, urna at bibendum varius, augue purus varius erat,
+                    ut aliquam dolor lectus vitae urna. Duis convallis, ipsum
+                    vel porttitor pharetra, tellus neque accumsan urna,                   </p>
+                  <button className='button button--mimas'>hi!</button>
+
+                </Col>
+              </Row>
+            </Container>
+          </Card>
         </div>
       </div>
       {/* Welcome Section */}
-      <Container fluid id="welcome_block" className="my-3 p-3">
+      {/* <Container fluid id="welcome_block" className="my-3 p-3">
         <Row className="ps-3 py-2 bg-light bg-gradient">
           <Col
             md={7}
@@ -69,7 +131,7 @@ function Main() {
             <Image fluid src={inst} alt="University #1" />
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
       {/* CAROUSEL */}
       <Container fluid id="carousel_block" className="my-3 p-3">
@@ -77,7 +139,7 @@ function Main() {
           <Carousel>
             <Carousel.Item>
               <img src={inst} className="d-block w-100" alt="Man on a Cliff" />
-              <Carousel.Caption>
+              <Carousel.Caption className='maincaption'>
                 <h3>University#1</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -90,7 +152,7 @@ function Main() {
             </Carousel.Item>
             <Carousel.Item>
               <img src={inst2} className="d-block w-100" alt="Man on a Cliff" />
-              <Carousel.Caption>
+              <Carousel.Caption className='maincaption'>
                 <h3>University#2</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -103,7 +165,7 @@ function Main() {
             </Carousel.Item>
             <Carousel.Item>
               <img src={inst3} className="d-block w-100" alt="Man on a Cliff" />
-              <Carousel.Caption>
+              <Carousel.Caption className='maincaption'>
                 <h3>University#3</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -119,7 +181,7 @@ function Main() {
       </Container>
 
       {/* Call-to-action Section */}
-      <Container fluid id="call_to_action_block" className="p-3 my-3">
+      {/* <Container fluid id="call_to_action_block" className="p-3 my-3">
         <Row className="px-5">
           <p className="fs-3">Call-to-Action</p>
           <Col lg={7}>
@@ -151,7 +213,7 @@ function Main() {
             </Stack>
           </Form>
         </Row>
-      </Container>
+      </Container> */}
 
       {/* FOOTER */}
       <footer className="footer mt-3 bg-light">
