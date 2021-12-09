@@ -1,10 +1,11 @@
-const { Connections, User, Sequelize } = require("../db/models");
-
+const { Connection } = require("pg");
+const { Connections, User, Profile, Sequelize } = require("../db/models");
 
 exports.connectionsGet = async (req, res) => {
   const users = await User.findAll({
     attributes: ["login", "id"],
   });
+  const profile = await Profile.findAll();
   console.log(users);
 
   const connections = await Connections.findAll();
@@ -12,29 +13,60 @@ exports.connectionsGet = async (req, res) => {
   if (connections) {
     const resArr = connections.map((el) => {
       let studentLogin;
+      let studentId;
       let investorLogin;
+      let investorId;
+      let studentInfo;
+      let investorInfo;
+      let studentCountry;
+      let investorCountry;
+      let studentLanguage;
+      let investorLanguage;
       //Search for Student
-      for(let i of users) {
-        if(i.dataValues.id === el.dataValues.student_id) {
+      for (let i of users) {
+        if (i.dataValues.id === el.dataValues.student_id) {
           studentLogin = i.dataValues.login;
+          studentId = el.dataValues.student_id;
+          for (let y of profile) {
+            if (i.dataValues.id === y.dataValues.user_id) {
+              studentInfo = y.dataValues.info;
+              studentCountry = y.dataValues.country;
+              studentLanguage = y.dataValues.language;
+            }
+          }
         }
-        if(i.dataValues.id === el.dataValues.investor_id) {
+        if (i.dataValues.id === el.dataValues.investor_id) {
           investorLogin = i.dataValues.login;
+          investorId = el.dataValues.investor_id;
+          for (let y of profile) {
+            if (i.dataValues.id === y.dataValues.user_id) {
+              investorInfo = y.dataValues.info;
+              investorCountry = y.dataValues.country;
+              investorLanguage = y.dataValues.language;
+            }
+          }
         }
       }
 
       return {
         id: el.dataValues.id,
         investor: investorLogin,
+        investorId,
         student: studentLogin,
+        studentId,
         status: el.dataValues.status,
-      }
+        studentInfo,
+        investorInfo,
+        studentCountry,
+        investorCountry,
+        studentLanguage,
+        investorLanguage,
+      };
     });
     console.log("32 Line", resArr);
     res.json(resArr);
   }
-}
-
+};
 
 exports.connectionsUpdate = async (req, res) => {
   const connection = await Connections.findOne({
@@ -70,6 +102,12 @@ exports.connectionsUpdate = async (req, res) => {
   }
 };
 
-/* exports.connectionsStatusUpdate = async (req, res) => {
-}
- */
+exports.connectionsStatusUpdate = async (req, res) => {
+  let connection = await Connections.findOne({
+    where: { student_id: req.body.student_id, investor_id: req.body.investor_id },
+  });
+
+  connection.status = req.body.status;
+  await connection.save();
+  res.end();
+};

@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 //import { useSelector } from "react-redux";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 
-function ModalProfile() {
+function ModalProfileInvestor({ element }) {
   //const { user } = useSelector((store) => store.user);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  console.log(element);
 
   return (
     <>
-      <Button className="ms-3 mt-3" variant="outline-primary" onClick={handleShow}>
-        Modal
-      </Button>
+      <a onClick={handleShow}>{element.investor}</a>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title></Modal.Title>
+          <Modal.Title>{element.investor}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
+          <ListGroup className="list-group-flush">
+            <ListGroupItem>Info: {element.investorInfo}</ListGroupItem>
+            <ListGroupItem>Country: {element.investorCountry}</ListGroupItem>
+            <ListGroupItem>Language: {element.investorLanguage}</ListGroupItem>
+          </ListGroup>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -35,4 +38,4 @@ function ModalProfile() {
   );
 }
 
-export default ModalProfile;
+export default ModalProfileInvestor;

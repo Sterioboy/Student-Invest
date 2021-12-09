@@ -13,6 +13,6 @@ router.route("/profile").post(profileUpdate).get(profileGet);
 
 router.route("/connections").get(connectionsGet).post(connectionsUpdate);
 
-/* router.route("/connections/status").get(connectionsStatusUpdate); */
+router.route("/connections/status").post(connectionsStatusUpdate);
 
 module.exports = router;
