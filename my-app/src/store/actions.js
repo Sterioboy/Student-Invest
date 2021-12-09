@@ -146,6 +146,7 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
   dispatch(updateConnectionsAC(data));
 };
 
+
 export const thunkUploadHandler = async (event) => {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -155,6 +156,17 @@ export const thunkUploadHandler = async (event) => {
   });
 };
 
-/* export const thunkChangeStatusAC = () => async (dispatch) => {
-
-}; */
+export const thunkChangeStatusAC = (boolean, investorId, studentId) => async (dispatch) => {
+  let reverse = !boolean;
+  await fetch("/connections/status", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      investor_id: investorId,
+      student_id: studentId,
+      status: reverse,
+    }),
+  });
+};

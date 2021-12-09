@@ -1,11 +1,11 @@
 import React from "react";
 import { Col, Button, Card, ListGroup } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { thunkConnectionAC } from "../../store/actions";
-import inst from "./imgs/inst.jpg";
 
 function Cards({ element }) {
   const dispatch = useDispatch();
+  const { photo } = useSelector((store) => store.profile);
   return (
     <Col
       className="
@@ -15,7 +15,7 @@ function Cards({ element }) {
             "
     >
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={inst} />
+        <Card.Img variant="top" src={`${element.photo}`} />
         <Card.Body>
           <Card.Title>{element.login}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">

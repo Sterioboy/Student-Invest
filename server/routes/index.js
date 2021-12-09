@@ -30,6 +30,6 @@ router
   .get(connectionsGet)
   .post(connectionsUpdate);
 
-/* router.route("/connections/status").get(connectionsStatusUpdate); */
+router.route("/connections/status").post(connectionsStatusUpdate);
 
 module.exports = router;

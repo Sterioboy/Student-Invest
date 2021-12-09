@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { connectionsAC } from "../../store/actions";
 import { useSelector, useDispatch } from "react-redux";
-import ModalProfile from "./Modal";
 import TableCell from "./TableCell";
 
 function ProfileConnect() {
@@ -16,7 +15,7 @@ function ProfileConnect() {
   }, [dispatch]);
 
   const connectionsArr = useSelector((store) => store.connections);
-  const { user } = useSelector((store) => store.user);
+  const { user, status } = useSelector((store) => store.user);
 
   return (
     <>
@@ -28,7 +27,7 @@ function ProfileConnect() {
             <th>Student</th>
             <th>Investor</th>
             <th>Status</th>
-            <th>Connect</th>
+            {status !== "Student" ? <th>Connect</th> : null}
           </tr>
         </thead>
         <tbody>
@@ -39,7 +38,6 @@ function ProfileConnect() {
           })}
         </tbody>
       </Table>
-      <ModalProfile />
     </>
   );
 }
