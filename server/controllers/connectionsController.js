@@ -1,6 +1,5 @@
 const { Connections, User, Sequelize } = require("../db/models");
 
-
 exports.connectionsGet = async (req, res) => {
   const users = await User.findAll({
     attributes: ["login", "id"],
@@ -14,11 +13,11 @@ exports.connectionsGet = async (req, res) => {
       let studentLogin;
       let investorLogin;
       //Search for Student
-      for(let i of users) {
-        if(i.dataValues.id === el.dataValues.student_id) {
+      for (let i of users) {
+        if (i.dataValues.id === el.dataValues.student_id) {
           studentLogin = i.dataValues.login;
         }
-        if(i.dataValues.id === el.dataValues.investor_id) {
+        if (i.dataValues.id === el.dataValues.investor_id) {
           investorLogin = i.dataValues.login;
         }
       }
@@ -28,13 +27,12 @@ exports.connectionsGet = async (req, res) => {
         investor: investorLogin,
         student: studentLogin,
         status: el.dataValues.status,
-      }
+      };
     });
     console.log("32 Line", resArr);
     res.json(resArr);
   }
-}
-
+};
 
 exports.connectionsUpdate = async (req, res) => {
   const connection = await Connections.findOne({

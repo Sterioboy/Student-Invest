@@ -17,18 +17,18 @@ export const authAC = (data) => {
 };
 
 export const profileAC = (data) => {
+  console.log("profileAC>>>>>>>>>>>>>>", data);
   if (data) {
-    const { info, interests, language, country } = data;
+    const { photo, info, interests, language, country } = data;
 
     return {
       type: ACTypes.PROFILE,
-      payload: { info, interests, language, country },
+      payload: { photo, info, interests, language, country },
     };
-  }
-  else {
+  } else {
     return {
       type: ACTypes.PROFILE,
-      payload: { },
+      payload: {},
     };
   }
 };
@@ -113,7 +113,6 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      photo: null,
       info: formEl.current.infoProfile.value,
       interests: formEl.current.interestsProfile.value,
       country: formEl.current.countryProfile.value,
@@ -122,6 +121,7 @@ export const thunkProfileAC = (e, formEl) => async (dispatch) => {
   });
 
   const data = await res.json();
+  console.log("data==================", data);
   dispatch(profileAC(data));
 };
 
@@ -145,6 +145,15 @@ export const thunkConnectionAC = (id) => async (dispatch) => {
 
   console.log(data);
   dispatch(updateConnectionsAC(data));
+};
+
+export const thunkUploadHandler = async (event) => {
+  event.preventDefault();
+  const data = new FormData(event.target);
+  await fetch("/profile", {
+    method: "post",
+    body: data,
+  });
 };
 
 /* export const thunkChangeStatusAC = () => async (dispatch) => {

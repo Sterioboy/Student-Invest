@@ -22,6 +22,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'storage')));
 app.use(express.json());
 
 app.use(session);
