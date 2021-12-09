@@ -39,6 +39,7 @@ exports.profileUpdate = async (req, res) => {
   console.log(profile);
   if (profile === null) {
     const newProfile = new Profile({
+      login: req.session.user.login,
       user_id: req.session.user.id,
       photo: `/images/${req.file.filename}`,
       info: info,

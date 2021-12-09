@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { Modal, Button, Form, InputGroup } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 import { thunkProfileAC } from "../../store/actions";
 
 function ProfileEdit() {
@@ -23,7 +23,7 @@ function ProfileEdit() {
 
   return (
     <>
-      <Button variant="outline-primary" onClick={handleShow}>
+      <Button className="ms-3 mt-3" variant="outline-primary" onClick={handleShow}>
         Edit
       </Button>
 
@@ -32,54 +32,22 @@ function ProfileEdit() {
         <Modal.Body>
           <Form
             ref={formEl}
-            className="w-50 mx-auto my-3"
+            className="w-75 mx-auto my-3"
             onSubmit={(e) => dispatch(thunkProfileAC(e, formEl))}
           >
-            <h3>Редактирование профиля</h3>
+            <h3>Profile Edit</h3>
             {/* <Form.Group className="mb-3" controlId="">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Enter your name"
-              />
+              <Form.Label>Аватар</Form.Label><br/>
+              <input type='file' name='store_img'/>
             </Form.Group> */}
-
-            {/* <Form.Group className="mb-3" controlId="">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control required type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group> */}
-
-            {/* <Form.Select required className="mb-3" name="">
-              <option>Status</option>
-              <option value="Investor">Investor</option>
-              <option value="Student">Student</option>
-              <option value="University">University</option>
-            </Form.Select> */}
-
-            {/* <Form.Group className="mb-3" controlId="">
-              <Form.Label>Password</Form.Label>
-              <Form.Control required type="password" placeholder="Password" />
-            </Form.Group> */}
-
-            <Form.Group className="mb-3" controlId="">
-              <Form.Label>Аватар</Form.Label>
-              <br />
-              <form onSubmit={uploadHandler}>
-                <input type="file" name="file" />
-                <button type="submit">ok</button>
-              </form>
-            </Form.Group>
 
             <Form.Group className="mb-3" controlId="infoProfile">
               <Form.Label>Info</Form.Label>
               <Form.Control
                 required
-                type="text"
-                placeholder="Enter about you"
+                as="textarea"
+                placeholder="Tell us about yourself!"
+                style={{ height: '100px' }}
               />
             </Form.Group>
 
@@ -88,21 +56,22 @@ function ProfileEdit() {
               <Form.Control
                 required
                 type="text"
-                placeholder="Enter your interests"
+                placeholder="Your interests"
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="countryProfile">
               <Form.Label>Country</Form.Label>
-              <Form.Control required type="text" placeholder="Enter country" />
+              <Form.Control required type="text" placeholder="Where are You from?" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="languageProfile">
               <Form.Label>Language</Form.Label>
-              <Form.Control required type="text" placeholder="Enter language" />
+              <Form.Control required type="text" placeholder="Spoken languages" />
             </Form.Group>
+            
             <Button variant="primary" type="submit" onClick={handleClose}>
-              Save
+              Submit
             </Button>
           </Form>
         </Modal.Body>

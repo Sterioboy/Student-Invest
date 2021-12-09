@@ -1,15 +1,8 @@
 const { Connections, User, Sequelize } = require("../db/models");
 
-
 exports.connectionsGet = async (req, res) => {
-  const { Op } = require("sequelize");
   const users = await User.findAll({
     attributes: ["login", "id"],
-    /* include: [{
-      model: Connections,
-      attributes: [],
-      where: { [Op.or]: [{[Op.col]: "Connections.investor_id"}: "Connections.student_id"]}
-    }] */
   });
   console.log(users);
 
@@ -20,11 +13,11 @@ exports.connectionsGet = async (req, res) => {
       let studentLogin;
       let investorLogin;
       //Search for Student
-      for(let i of users) {
-        if(i.dataValues.id === el.dataValues.student_id) {
+      for (let i of users) {
+        if (i.dataValues.id === el.dataValues.student_id) {
           studentLogin = i.dataValues.login;
         }
-        if(i.dataValues.id === el.dataValues.investor_id) {
+        if (i.dataValues.id === el.dataValues.investor_id) {
           investorLogin = i.dataValues.login;
         }
       }
@@ -34,12 +27,12 @@ exports.connectionsGet = async (req, res) => {
         investor: investorLogin,
         student: studentLogin,
         status: el.dataValues.status,
-      }
+      };
     });
     console.log("32 Line", resArr);
     res.json(resArr);
   }
-}
+};
 
 exports.connectionsUpdate = async (req, res) => {
   const connection = await Connections.findOne({
@@ -74,3 +67,7 @@ exports.connectionsUpdate = async (req, res) => {
     res.json({ err: "Connection is already created!" });
   }
 };
+
+/* exports.connectionsStatusUpdate = async (req, res) => {
+}
+ */

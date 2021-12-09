@@ -16,23 +16,19 @@ function ProfileInfo() {
   const info = useSelector((store) => store.profile);
 
   return (
-    <Card style={{ width: '30rem' }}>
+    <Card className="mx-3" style={{ width: '35rem' }}>
       <Container>
         <Row>
           <Col>
-            <p>{info.info} {info.language} {info.country} {info.interests} {info.photo}</p>
-            <h4>Info</h4>
+            <h4 className="my-2">Info</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-              blandit tristique est nec condimentum. Aliquam bibendum, urna at
-              bibendum varius, augue purus varius erat, ut aliquam dolor lectus
-              vitae urna. Duis convallis, ipsum vel porttitor pharetra, tellus
-              neque accumsan urna, non tristique nibh felis ac eros. Ut sed orci
-              lacinia, bibendum purus sit amet, eleifend ipsum. Ut eget lorem
-              est. Nullam eu augue ligula. Cras placerat porttitor mi ac
-              finibus. Vestibulum pretium, augue et bibendum facilisis, orci
-              ligula rutrum libero, eu luctus orci nunc quis purus. Aliquam erat
-              volutpat.
+              About: {info.info}
+            </p>
+            <p>
+              Country: {info.country}
+            </p>
+            <p>
+              Language: {info.language}
             </p>
           </Col>
         </Row>

@@ -26,7 +26,7 @@ function ProfileImage() {
         <input type='file' name='file' />
         <button type='submit'>ok</button>
         </form>
-        <h3>{user}</h3>
+        <h3 className="text-center">{user}</h3>
       </Row>
     </Container>
   );

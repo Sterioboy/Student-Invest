@@ -16,25 +16,31 @@ function ProfileConnect() {
   }, [dispatch]);
 
   const connectionsArr = useSelector((store) => store.connections);
-  console.log(connectionsArr);
+  const { user } = useSelector((store) => store.user);
 
   return (
-    <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Student</th>
-          <th>Investor</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {connectionsArr.map((element) => (
-          <TableCell element={element} key={element.id} />
-        ))}
-      </tbody>
+    <>
+      <h3>Connections Status</h3>
+      <Table className="mb-3" striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Investor</th>
+            <th>Status</th>
+            <th>Connect</th>
+          </tr>
+        </thead>
+        <tbody>
+          {connectionsArr.map((element) => {
+            if (user === element.student || user === element.investor) {
+              return <TableCell element={element} key={element.id} />;
+            }
+          })}
+        </tbody>
+      </Table>
       <ModalProfile />
-    </Table>
+    </>
   );
 }
 

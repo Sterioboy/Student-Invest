@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       defaultValue: ''
     },
+    login: {
+      type: DataTypes.STRING,
+      defaultValue: ''
+    },
     info: {
       type: DataTypes.STRING,
       defaultValue: ''
