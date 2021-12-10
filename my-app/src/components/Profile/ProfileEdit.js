@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Modal, Button, Form } from "react-bootstrap";
+import { Upload } from 'react-bootstrap-icons';
 import { thunkProfileAC } from "../../store/actions";
-import ProfileImage from "./ProfileImage";
+import { thunkUploadHandler } from '../../store/actions';
 
 function ProfileEdit() {
   const formEl = useRef();
@@ -13,6 +14,11 @@ function ProfileEdit() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    dispatch(thunkUploadHandler(event));
+  };
+
   return (
     <>
       <Button
@@ -22,10 +28,20 @@ function ProfileEdit() {
       >
         Edit
       </Button>
+      
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
+        <form onSubmit={submitHandler}>
+          <input name="file" type="file" id="input_file" hidden />
+          <label for="input_file">
+            <Upload color="blue" size={43}/>
+          </label>
+          <Button variant="outline-primary" type="submit">
+            Uploud
+          </Button>
+        </form>
           <Form
             ref={formEl}
             className="w-75 mx-auto my-3"
