@@ -9,11 +9,11 @@ import {
   Image,
   Button,
   Carousel,
-  Form
+  Form,
 } from "react-bootstrap";
 import inst from "./imgs/inst.jpg"; // with import
-import inst2 from "./imgs/inst2.jpg"; // with import
-import inst3 from "./imgs/inst3.jpg"; // with import
+import inst2 from "./imgs/inst2.png"; // with import
+import inst4 from "./imgs/inst4.jpg"; // with import
 
 function Main() {
   return (
@@ -33,14 +33,20 @@ function Main() {
           >
             <Stack>
               <p className="fs-3">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                We believe that every individual thrives in a learning-friendly
+                environment where they feel safe, supported, and challenged.
               </p>
               <p className="fs-4">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Here we accommodate and support the diverse and complex needs of
+                students from all around the globe.
               </p>
-              <Button variant="outline-primary" className="w-50 h-auto p-3">
-                Call to action
-              </Button>
+              <Link
+                type="button"
+                className="w-50 h-auto p-3 btn btn-outline-primary"
+                to="/auth/register"
+              >
+                Sign Up
+              </Link>
             </Stack>
           </Col>
           <Col
@@ -65,87 +71,27 @@ function Main() {
             <Carousel.Item>
               <img src={inst} className="d-block w-100" alt="Man on a Cliff" />
               <Carousel.Caption>
-                <h3>University#1</h3>
+                <h3>Our Goals</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quidem necessitatibus minima, ad deleniti ratione officia,
-                  corporis tempora perspiciatis vero dicta ab. Reiciendis
-                  delectus magni perferendis qui repellat eligendi repudiandae
-                  velit?
+                  Here we accommodate and support the diverse and complex needs
+                  of students from all around the globe, since human potential
+                  is the most important asset.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img src={inst2} className="d-block w-100" alt="Man on a Cliff" />
               <Carousel.Caption>
-                <h3>University#2</h3>
+                <h3>Our Goals</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quidem necessitatibus minima, ad deleniti ratione officia,
-                  corporis tempora perspiciatis vero dicta ab. Reiciendis
-                  delectus magni perferendis qui repellat eligendi repudiandae
-                  velit?
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={inst3} className="d-block w-100" alt="Man on a Cliff" />
-              <Carousel.Caption>
-                <h3>University#3</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quidem necessitatibus minima, ad deleniti ratione officia,
-                  corporis tempora perspiciatis vero dicta ab. Reiciendis
-                  delectus magni perferendis qui repellat eligendi repudiandae
-                  velit?
+                  When we shape modern business models to be accessible and
+                  inclusive, we reach the greatest number of professionals – and
+                  ultimately benefit from what they later contribute to our
+                  communities.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-        </Row>
-      </Container>
-
-      {/* Call-to-action Section */}
-      <Container fluid id="call_to_action_block" className="p-3 my-3">
-        <Row className="px-5">
-          <p className="fs-3">Call-to-Action</p>
-          <Col lg={7}>
-            <p className="fw-normal">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque
-              ipsum atque facere iure qui neque aut accusantium mollitia
-              assumenda porro distinctio, laborum, suscipit corrupti repellendus
-              itaque corporis blanditiis architecto labore.
-            </p>
-          </Col>
-        </Row>
-        <Row className="px-5">
-          <Form className="align-items-center">
-            <Stack direction="horizontal" gap={3}>
-              <Form.Group className="col-auto" controlId="formName">
-                <Form.Control
-                  type="text"
-                  placeholder="ФИО"
-                />
-              </Form.Group>
-              <Form.Group className="col-auto" controlId="formPhone">
-                <Form.Control
-                  type="text"
-                  placeholder="Телефон"
-                />
-              </Form.Group>
-              <Form.Group className="col-auto" controlId="formEmail">
-                <Form.Control
-                  type="email"
-                  placeholder="Email"
-                />
-              </Form.Group>
-              <div className="col-auto">
-                <Button variant="outline-primary" type="submit">
-                  Submit
-                </Button>
-              </div>
-            </Stack>
-          </Form>
         </Row>
       </Container>
 
@@ -155,31 +101,27 @@ function Main() {
           <p className="fs-3">Contacts</p>
           <Col lg={6}>
             <p className="fw-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-              accusamus corporis? Cum expedita ipsam iste error?
+              Young and promising professionals require quality mentorship and
+              support!
             </p>
           </Col>
           <Col lg={6}>
             <p className="fw-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              dolore sint, soluta a quos consequatur voluptatem, neque, optio
-              vero molestias voluptates!
+              Quality investments in Human Capital harmonize modern business
+              models and bring up brighter talents.
             </p>
           </Col>
         </Row>
         <Row className="px-5 pb-3">
           <Col md={5} lg={3}>
-            <p className="fw-light">+1(123)456-78-90</p>
+            <p className="fw-light">+1(123)456-78-90 | Corporate@gmail.com</p>
           </Col>
           <Col md={7} lg={9} className="d-flex justify-content-end">
-            <Link className="nav-link d-none d-md-block" to="#">
-              Услуги
+            <Link className="nav-link d-none d-md-block" to="/auth/register">
+              Sign Up
             </Link>
-            <Link className="nav-link d-none d-md-block" to="#">
-              Портфолио
-            </Link>
-            <Link className="nav-link d-none d-md-block" to="#">
-              Контакты
+            <Link className="nav-link d-none d-md-block" to="/auth/login">
+              Sign In
             </Link>
           </Col>
         </Row>

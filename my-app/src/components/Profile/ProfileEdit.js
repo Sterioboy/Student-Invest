@@ -13,18 +13,19 @@ function ProfileEdit() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
   return (
     <>
-      <Button className="ms-3 mt-3" variant="outline-primary" onClick={handleShow}>
+      <Button
+        className="ms-3 mt-3"
+        variant="outline-primary"
+        onClick={handleShow}
+      >
         Edit
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <ProfileImage />
           <Form
             ref={formEl}
             className="w-75 mx-auto my-3"
@@ -42,29 +43,33 @@ function ProfileEdit() {
                 required
                 as="textarea"
                 placeholder="Tell us about yourself!"
-                style={{ height: '100px' }}
+                style={{ height: "100px" }}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="interestsProfile">
               <Form.Label>Interests</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Your interests"
-              />
+              <Form.Control required type="text" placeholder="Your interests" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="countryProfile">
               <Form.Label>Country</Form.Label>
-              <Form.Control required type="text" placeholder="Where are You from?" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="Where are You from?"
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="languageProfile">
               <Form.Label>Language</Form.Label>
-              <Form.Control required type="text" placeholder="Spoken languages" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="Spoken languages"
+              />
             </Form.Group>
-            
+
             <Button variant="primary" type="submit" onClick={handleClose}>
               Submit
             </Button>

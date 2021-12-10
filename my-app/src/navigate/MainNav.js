@@ -8,7 +8,7 @@ const MainNav = () => {
   //Component
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav style={{backgroundColor: "(59,89,152)"}} className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand px-3" to="/">
             Student-Invest
