@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col, Image, NavLink, Button } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { thunkUploadHandler } from "../../store/actions";
 
 function ProfileImage() {
@@ -21,13 +21,15 @@ function ProfileImage() {
   return (
     <Container>
       <Row>
-        <NavLink>
           <Col xs={6} md={4}>
-            <Image className="w-50" src={`${photo}`} rounded />
+            <Image className="w-50" src={photo} rounded />
           </Col>
-        </NavLink>
         <form onSubmit={submitHandler}>
-          <input type="file" name="file" />
+          {/* <input type="file" name="file" /> */}
+          <input name="file" type="file" id="input__file" hidden />
+            <label for="input__file" className="input__file-button">
+              <span class="input__file-icon-wrapper">Choose file</span>
+            </label>
           <Button
             variant="outline-primary"
             type="submit"
