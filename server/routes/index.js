@@ -12,7 +12,7 @@ const {
 } = require("../controllers/connectionsController");
 
 router.get("/", (req, res) => {
-  res.redirect("/");
+  res.json("/");
 });
 
 router

@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 
 const Routers = () => {
-  const { status } = useSelector((store) => store.user);
+  const { status, isAuth } = useSelector((store) => store.user);
 
   return (
     <Routes>
@@ -18,7 +18,7 @@ const Routers = () => {
       <Route path="/auth/register" element={<SignUp />} />
       <Route path="/auth/login" element={<SignIn />} />
       <Route path="/auth/logout" element={<Logout />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile" element={isAuth !== false ? <Profile /> : <Main />} />
     </Routes>
   );
 };

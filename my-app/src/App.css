@@ -2,6 +2,26 @@ body {
   overflow-x: hidden;
 }
 
+#coverPage {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 95vh;
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92d7,
+    #010d79e5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #004e92d7,
+    #010d79e5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
 .App {
   text-align: center;
 }

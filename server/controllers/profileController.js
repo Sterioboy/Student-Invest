@@ -1,18 +1,17 @@
 const { Profile, User } = require("../db/models");
-const multer = require('multer');
-const path = require('path');
-
+const multer = require("multer");
+const path = require("path");
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, './storage/images');
+    cb(null, "./storage/images");
   },
   filename(req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); 
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 
-exports.upload = multer({ storage })
+exports.upload = multer({ storage });
 
 exports.profileUpdate = async (req, res) => {
   const { info, interests, country, language } = req.body;
@@ -55,4 +54,3 @@ exports.profileGet = async (req, res) => {
   });
   res.json(profile);
 };
-

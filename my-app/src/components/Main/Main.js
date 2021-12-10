@@ -12,14 +12,33 @@ import {
   Form,
 } from "react-bootstrap";
 import inst from "./imgs/inst.jpg"; // with import
-import inst2 from "./imgs/inst2.png"; // with import
-import inst4 from "./imgs/inst4.jpg"; // with import
+import inst2 from "./imgs/inst2.jpg"; // with import
+import inst3 from "./imgs/inst3.jpg"; // with import
 
 function Main() {
   return (
     <div className="mainModule">
       {/* Welcome Section */}
-      <Container fluid id="welcome_block" className="my-3 p-3">
+      <Container fluid id="coverPage">
+        <h1 class="text-center">Student Invest</h1>
+        <p class="lead text-center">
+          Quality investments in Human Capital harmonize modern business models
+          and bring up brighter talents
+        </p>
+        <p class="lead text-center">
+          <Button variant="outline-light" className="w-25 p-3" href="#welcome_block">Learn More</Button>
+          {/* <Link
+            type="button"
+            className="w-25 p-3 btn btn-outline-light"
+            to="/auth/register"
+          >
+            Sign Up
+          </Link> */}
+        </p>
+      </Container>
+      {/* Welcome Section */}
+
+      <Container fluid id="welcome_block" className="my-5 p-3">
         <Row className="ps-3 py-2 bg-light bg-gradient">
           <Col
             md={7}
@@ -32,6 +51,7 @@ function Main() {
             "
           >
             <Stack>
+              <p className="fs-2">Mission Statement</p>
               <p className="fs-3">
                 We believe that every individual thrives in a learning-friendly
                 environment where they feel safe, supported, and challenged.
@@ -42,7 +62,7 @@ function Main() {
               </p>
               <Link
                 type="button"
-                className="w-50 h-auto p-3 btn btn-outline-primary"
+                className="w-50 h-auto p-3 btn btn-outline-secondary"
                 to="/auth/register"
               >
                 Sign Up
@@ -59,13 +79,13 @@ function Main() {
               d-none d-md-block
             "
           >
-            <Image fluid src={inst} alt="University #1" />
+            <Image fluid src={inst2} alt="University #1" />
           </Col>
         </Row>
       </Container>
 
       {/* CAROUSEL */}
-      <Container fluid id="carousel_block" className="my-3 p-3">
+      <Container fluid id="carousel_block" className="my-5 p-3">
         <Row className="w-75 mx-auto my-3 d-none d-md-block">
           <Carousel>
             <Carousel.Item>
@@ -80,7 +100,7 @@ function Main() {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img src={inst2} className="d-block w-100" alt="Man on a Cliff" />
+              <img src={inst3} className="d-block w-100" alt="Man on a Cliff" />
               <Carousel.Caption>
                 <h3>Our Goals</h3>
                 <p>
