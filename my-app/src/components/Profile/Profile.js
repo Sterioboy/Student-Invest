@@ -23,7 +23,6 @@ function Profile() {
       </Row>
       <ProfileEdit />
       <ProfileConnect />
-     
     </div>
   );
 }

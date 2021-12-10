@@ -40,31 +40,24 @@ function MainStudent() {
           <p className="fs-3">Contacts</p>
           <Col lg={6}>
             <p className="fw-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-              accusamus corporis? Cum expedita ipsam iste error?
+              Young and promising professionals require quality mentorship and
+              support!
             </p>
           </Col>
           <Col lg={6}>
             <p className="fw-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              dolore sint, soluta a quos consequatur voluptatem, neque, optio
-              vero molestias voluptates!
+              Quality investments in Human Capital harmonize modern business
+              models and bring up brighter talents.
             </p>
           </Col>
         </Row>
         <Row className="px-5 pb-3">
           <Col md={5} lg={3}>
-            <p className="fw-light">+1(123)456-78-90</p>
+            <p className="fw-light">+1(123)456-78-90 | Corporate@gmail.com</p>
           </Col>
           <Col md={7} lg={9} className="d-flex justify-content-end">
-            <Link className="nav-link d-none d-md-block" to="#">
-              Услуги
-            </Link>
-            <Link className="nav-link d-none d-md-block" to="#">
-              Портфолио
-            </Link>
-            <Link className="nav-link d-none d-md-block" to="#">
-              Контакты
+            <Link className="nav-link d-none d-md-block" to="/profile">
+              Profile
             </Link>
           </Col>
         </Row>
